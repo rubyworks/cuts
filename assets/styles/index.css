@@ -1,0 +1,159 @@
+
+body { padding: 0; margin: 0;
+       background: #cc0000;
+       font-size: 11pt; font-family: Microsoft sans-serif, sans-serif, helvetica;
+       text-align: center;
+       color: white;
+       letter-spacing: 1px;
+       line-height: 14pt;
+       position: relative; 
+}
+
+h1 { padding-top: 30px; font-size: 2.5em; }
+
+h1.top { margin-top: -10px; }
+
+h2 { margin-top: 25px; }
+
+p {
+  font-size: 1em;
+  line-height: 15pt;
+  text-align: justify;
+}
+
+ul {
+  line-height: 16pt;
+}
+
+img {
+  border: none;
+}
+
+pre {
+  padding: 5px 10px 20px 10px;
+  font-size: 0.9em;
+  background-color: #f1f1f1;
+  color: #FF0055;
+  font-weight: bold;
+  width: 85%;
+}
+
+a { text-decoration: none; color: pink; }
+a:hover { text-decoration: underline; }
+
+pre.script { background-color: #DDFFDD; color: black; }
+
+#container {
+  vertical-align: top;
+}
+
+.logo {
+  height: 90px;
+  margin-left: 0;
+  margin-right: 20px;
+  padding: 20px;
+  text-align: left;
+}
+
+.title {
+  font: bold 52pt sans-serif;
+  color: white;
+  letter-spacing: 17pt;
+  padding-left: 15px;
+}
+
+.menu {
+  background: #cc0000;
+  height: 90px;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: right;
+  padding: 20px 10px 0 0;
+  line-height: 42px;
+  color: #CC1133;
+  float: right;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.menu a:hover {
+  color: #cccc00;
+  text-decoration: underline;
+}
+
+#sidebar {
+  width: 200px;
+  padding: 20px;
+  background: #ffffff;
+  text-align: left;
+  border-left: 3px solid #555555;
+  text-align: center;
+  position: relative;
+}
+
+.adframe {
+  width: 200px;
+  height: 1600px;
+  padding: 0;
+  border: none;
+  background: white;
+  position: absolute;
+  right: 20; top: 10;
+}
+
+.text {
+  padding: 10px 20px 20px 5px;
+  text-align: left;
+  background: white;
+  background: #cc0000;
+  border: 0px solid #bbb000;
+  padding-left: 20px;
+}
+
+.intro {
+  font-weight: normal;
+  font-size: 1.4em;
+  line-height: 20pt;
+}
+
+.date {
+  float:right; color:pink; margin: 0;
+}
+
+.copyright {
+  background: #000;
+  height: 72px;
+  text-align: left;
+  color: white;
+  font-size: 0.9em;
+  font-weight: bold;
+  padding: 10px;
+  padding-left: 20px;
+  border-top: 2px solid black;
+}
+
+.copyright a {
+  color: pink;
+}
+
+.important {
+  color: red;
+}
+
+.tiger {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.rev {
+  font-size: 10pt;
+  padding-left: 15px;
+}
+
+p.top {
+  font-weight: bold;
+}

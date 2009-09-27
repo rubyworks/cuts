@@ -1,0 +1,12 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: def cut; @cut; end
+full_name: Class#aspects
+is_singleton: false
+name: aspects
+params: ()
+visibility: public

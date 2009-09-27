@@ -1,0 +1,11 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: 
+- !ruby/object:RDoc::RI::AliasName 
+  name: call
+block_params: 
+comment: 
+full_name: Target#super
+is_singleton: false
+name: super
+params: ()
+visibility: public

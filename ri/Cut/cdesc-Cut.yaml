@@ -1,0 +1,51 @@
+--- !ruby/object:RDoc::RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RDoc::RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:RDoc::Markup::Flow::H 
+  level: 1
+  text: Cut
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Cuts are transparent subclasses. Thay are the basis of Cut-based AOP. The general idea of Cut-based AOP is that the Cut can serve a clean container for customized advice on top of which more sophisticated AOP systems can be built.
+- !ruby/struct:RDoc::Markup::Flow::H 
+  level: 2
+  text: Examples
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: "The basic usage is:"
+- !ruby/struct:RDoc::Markup::Flow::VERB 
+  body: "  class X\n    def x; &quot;x&quot;; end\n  end\n\n  cut :Z &lt; X do\n    def x; '{' + super + '}'; end\n  end\n\n  X.new.x  #=&gt; &quot;{x}&quot;\n"
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: One way to use this in an AOP fashion is to define an aspect as a class or function module, and tie it together with the Cut.
+- !ruby/struct:RDoc::Markup::Flow::VERB 
+  body: "  module LogAspect\n    extend self\n    def log(meth, result)\n      ...\n    end\n  end\n\n  cut :Z &lt; X do\n    def x\n      LogAspect.log(:x, r = super)\n      return r\n    end\n  end\n"
+- !ruby/struct:RDoc::Markup::Flow::H 
+  level: 2
+  text: Implementation
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: "Cuts act as a &quot;pre-class&quot;. Which depictively is:"
+- !ruby/struct:RDoc::Markup::Flow::VERB 
+  body: "  ACut &lt; AClass &lt; ASuperClass\n"
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: Instantiating AClass effecively instantiates ACut instead, but that action is effectively transparent.
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: "This particular implementation create a module for each cut and extends objects as they are created. Given the following example:"
+- !ruby/struct:RDoc::Markup::Flow::VERB 
+  body: "  class Klass\n    def x; &quot;x&quot;; end\n  end\n\n  cut KlassCut &lt; Klass\n    def x; '{' + super + '}'; end\n  end\n"
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: "The effect is essentially:"
+- !ruby/struct:RDoc::Markup::Flow::VERB 
+  body: "  k = Klass.new\n  k.extend KlassCut\n\n  p k.x\n"
+- !ruby/struct:RDoc::Markup::Flow::P 
+  body: The downside to this approach is a limitation in dynamicism.
+constants: []
+
+full_name: Cut
+includes: []
+
+instance_methods: []
+
+name: Cut
+superclass: Module

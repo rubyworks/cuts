@@ -1,0 +1,10 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Object#cross_cut
+is_singleton: false
+name: cross_cut
+params: (klass)
+visibility: public

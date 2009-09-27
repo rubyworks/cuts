@@ -1,0 +1,10 @@
+--- !ruby/object:RDoc::RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Class#apply
+is_singleton: false
+name: apply
+params: (aspect)
+visibility: public
