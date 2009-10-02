@@ -15,13 +15,13 @@
 
 <div class="menu">
   <a href="index.html">HOME</a> &#x00B7;
-  <a href="guide/rcr.html">RCR</a> &#x00B7;
+  <a href="#news">NEWS</a> &#x00B7;
+  <a href="rcr.html">RCR</a> &#x00B7;
   <a href="rdoc/index.html">API</a> <br/>
-  <a href="http://rubyforge.org/frs/?group_id=5601">Download</a> &#x00B7;
-  <a href="http://rubyforge.org/mail/?group_id=5881">Mail</a> &#x00B7;
-  <a href="http://rubyforge.org/news/?group_id=5601">News</a> &#x00B7;
-  <a href="http://rubyforge.org/scm/?group_id=5601">Source</a> &#x00B7;
-  <a href="http://rubyforge.org/tracker/?group_id=5601">Ticket</a>
+  <a href="http://github.com/rubyworks/cuts">Download</a> &#x00B7;
+  <a href="http://googlegroups/group/rubyworks-mailinglist">Mail</a> &#x00B7;
+  <a href="http://github.com/rubyworks/cuts">Source</a> &#x00B7;
+  <a href="http://github.com/rubyworks/cuts/issues">Ticket</a>
 </div>
 
 <div class="logo">
@@ -35,26 +35,30 @@
 
 <p class="intro">Cuts is an expiremental pure-Ruby implimentation of cut-base AOP.
 Cuts are a failry low-level system, so implementing them in pure-Ruby is no
-simple accomplishment, even for a language as reflective and metaprogrammable as Ruby is.
+simple accomplishment, even for a language as reflective and metaprogrammable as Ruby.
 </p>
 
 <p>Cuts started it's life as a discussion about AOP on Ruby-talk, which led to 
 a in-depth discussion between Trans and Peter Vanbroekhoven. The outcome of those talks
 were three projects. <a href="http://suby.rubyforge.org">Suby</a> an early expiremental
 branch of Ruby; the RCRFoundry, a section of the Ruby Garden Wiki dedicated to jointly
-developing RCRs; and the <a href="http://rcrchive.net/rcrs/1">Cut-based AOP RCR</a>. 
+developing RCRs; and the <a href="rcr.html">Cut-based AOP RCR</a>. 
 The RCR of course, ultimately led to this project, as well as an expiremental Ruby 1.8.3
-core implementation (see the Suby homepage). We continue to touch up the RCR in our
-<a href="rcr.html">local copy of the Cut-based AOP RCR</a>.</p>
+core implementation (see the Suby homepage). We continue to touch up the
+<a href="rcr.html">RCR</a> but on the whole it is now complete.</p>
+
+<p style="text-align: center; margin-top: 30px;">
+  Please read <a href="rcr.html">Cut-base AOP for Ruby</a>.
+</p>
 
 
-<h1>News</h1>
+<h1 id="news">News</h1>
 
 <h3 class="date">2008-02-22</h3>
 
 <h2>Initial Release</h2>
 
-<p>The Cuts library comes by way of <a href="http://facets.rubyforge.org">Facets</a>, where the implementation
+<p>The Cuts library comes by way of <a href="http://facets.rubyforge.org">Ruby Facets</a>, where the implementation
 was orginally housed. Becuase of it's empiremental nature, it was deemd best to move it into it's own
 project as part of the ongoing work to make Facets a rock solid library. Despite being expiremental, this 
 implementation does pass it's unit test. However, it has had litte trial in integrated tests. It will be
@@ -75,7 +79,7 @@ is completely in other persons hands.</p>
 
 <pre><code>
   $ tar -xzf cuts-x.y.z.tar.gz
-  $ cd reap-x.y.z
+  $ cd cuts-x.y.z
   $ sudo setup.rb
 </code></pre>
 
@@ -89,28 +93,20 @@ is completely in other persons hands.</p>
 
 <h1>Development</h1>
 
-<p>Cuts is hosted by Rubyforge at <a href="http://cuts.rubyforge.org">http://cuts.rubyforge.org</a>.</p>
+<p>Cuts development is hosted by GitHUb at <a href="http://github.com/rubyworks/cuts">http://github.com/rubyworks/cuts</a>.</p>
 
 <h2>Anonymous Access</h2>
 
 <p>To pull the 'cuts' repository anonymously, use:</p>
 
 <pre><code>
-  git clone git://rubyforge.org/cuts.git
+  git://github.com/rubyworks/cuts.git
 </code></pre>
-
-<h2>Developer Access via Gitosis</h2>
-
-<p>Developers, you can push to the 'cuts' repository using:</p>
-
-<pre><code>
-  gitosis@rubyforge.org:cuts.git
-</code></pre>
-        
+       
 <h2>Browse the Git Repository</h2>
 
 <p>You can use gitweb to 
-<a href="http://cuts.rubyforge.org/git?p=cuts.git;a=tree">browse the 'cuts' repository</a>.</p>
+<a href="http://github.com/rubyworks/cuts">browse the 'cuts' repository</a>.</p>
 
 
 <h1>Special Thanks</h1>
@@ -133,15 +129,17 @@ GNU General Public License for more details.</p>
 </div> <!-- text -->
 
 <div class="copyright">
-  <p>Cuts, Copyright &#x00A9; 2007 <a href="http://tigerops.org">Tiger Ops</a></p>
+  <p>Cuts, Copyright &#x00A9; 2007 <a href="http://tigerops.org">Thomas Sawyer & Peter Van Broekhoven</a></p>
 </div>
 
 </div> <!-- main -->
 
+<!--
 <div id="sidebar" style="display: table-cell;">
   <iframe class="adframe" src="http://tigerops.org/assets/adverts/side-lg-wht.html" style="position: absolute;">
   </iframe>
 </div>
+-->
 
 </div> <!-- main -->
 
