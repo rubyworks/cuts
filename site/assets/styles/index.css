@@ -32,10 +32,10 @@ img {
 pre {
   padding: 5px 10px 20px 10px;
   font-size: 0.9em;
-  background-color: #f1f1f1;
-  color: #FF0055;
+  background-color: #cc2222;
+  /* color: #FF0055; */
   font-weight: bold;
-  width: 85%;
+  width: 98%;
 }
 
 a { text-decoration: none; color: pink; }
@@ -45,6 +45,8 @@ pre.script { background-color: #DDFFDD; color: black; }
 
 #container {
   vertical-align: top;
+  width: 900px;
+  margin: 0 auto;
 }
 
 .logo {
@@ -125,7 +127,6 @@ pre.script { background-color: #DDFFDD; color: black; }
 }
 
 .copyright {
-  background: #000;
   height: 72px;
   text-align: left;
   color: white;
@@ -133,7 +134,7 @@ pre.script { background-color: #DDFFDD; color: black; }
   font-weight: bold;
   padding: 10px;
   padding-left: 20px;
-  border-top: 2px solid black;
+  border-top: 2px solid white;
 }
 
 .copyright a {

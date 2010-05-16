@@ -1,0 +1,16 @@
+--- 
+name: cuts
+title: ""
+license: MIT
+maintainer: 
+contact: tigerops-community@rubyforge.org
+suite: 
+copyright: 
+authors: []
+
+description: |-
+  Cuts is an expiremental implementation of cut-based
+  AOP for Ruby written in pure Ruby.
+summary: Cut-based AOP for Ruby
+created: "2008-02-12"
+collection: rubyworks

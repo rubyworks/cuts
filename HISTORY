@@ -1,18 +1,39 @@
 = Cuts Change History
 
-== 0.0.4 // 2008-03-05
+== 1.0.0 (2008-11-24)
+
+This release completely overhauls how the the original
+version of cuts was implemented.
+
+Before, cuts where overriding the constant of the
+original class and redirecting class changes
+(define_method, alias_method, etc.) to the original
+class. This works, and is technically more true to
+the core idea of Cuts, but it is rather fragile --
+getting a handle on the Cut vs. the Cut Class b/c
+tricky.
+
+The new implementation simply creates a module for
+a cut instead, and then used #extend on objects 
+upon instantiation. The end result is less dynamic
+(cuts need to be defined up front), but it is more
+stable. As long as #new, when overriden, is done so
+properly (ie. use super or copy the cut extension
+logic) everthing will work as expected.
+
+== 0.0.4 (2008-03-05)
 
 * Added Rakefile to run tests.
 
-== 0.0.3 // 2008-04-06
+== 0.0.3 (2008-04-06)
 
 * Working release.
 
-== 0.0.1 // 2008-03-05
+== 0.0.1 (2008-03-05)
 
 * First release.
 
-== 0.0.0 // 2008-03-04
+== 0.0.0 (2008-03-04)
 
 * Started project.
 
