@@ -1,11 +1,11 @@
 body { padding: 0; margin: 0;
-       background: #4cc;
        font-size: 10pt; font-family: Microsoft sans-serif, sans-serif, helvetica;
        text-align: center;
        color: #222;
        letter-spacing: 1px;
        line-height: 12pt;
        position: relative; 
+       background: url(../images/scissors3.jpg) no-repeat center 30px black;
 }
 
 h1 { padding-top: 30px; font-size: 2.0em; color: #222; }
@@ -29,7 +29,7 @@ img {
 }
 
 pre {
-  padding: 5px 5px 10px 10px;
+  padding: 10px 5px 10px 10px;
   font-size: 0.9em;
   background-color: #eee;
   /* color: #FF0055; */
@@ -47,6 +47,7 @@ pre.script { background-color: #DDFFDD; color: black; }
   vertical-align: top;
   width: 750px;
   margin: 0 auto;
+  margin-top: 40px;
 }
 
 .logo {
@@ -59,7 +60,7 @@ pre.script { background-color: #DDFFDD; color: black; }
 
 .title {
   font: bold 56pt sans-serif;
-  color: red;
+  color: #440000;
   letter-spacing: 17pt;
   padding: 0;
   margin-left: -20px;
@@ -72,12 +73,12 @@ pre.script { background-color: #DDFFDD; color: black; }
   text-align: right;
   padding: 20px 10px 0 0;
   line-height: 42px;
-  color: red;
+  color: #440000;
   float: right;
 }
 
 .menu a {
-  color: #ffff00;
+  color: #ddcc00;
   text-decoration: none;
   padding: 5px;
 }
@@ -112,6 +113,7 @@ pre.script { background-color: #DDFFDD; color: black; }
   background: white;
   border: 1px solid #ffff00;
   padding: 0 30px 20px 30px;
+  opacity: 0.7;
 }
 
 .intro {
