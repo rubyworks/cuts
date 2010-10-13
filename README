@@ -2,7 +2,7 @@ NAME
   cuts
 
 URL
-  http://cuts.rubyforge.org
+  http://rubyworks.github.com/cuts
 
 SYNOPSIS
   Cuts is an expiremental implementation of cut-based AOP for Ruby.
