@@ -1,4 +1,4 @@
-= Cuts Change History
+= Release History
 
 == 1.0.0 (2008-11-24)
 
@@ -21,17 +21,21 @@ stable. As long as #new, when overriden, is done so
 properly (ie. use super or copy the cut extension
 logic) everthing will work as expected.
 
+
 == 0.0.4 (2008-03-05)
 
 * Added Rakefile to run tests.
+
 
 == 0.0.3 (2008-04-06)
 
 * Working release.
 
+
 == 0.0.1 (2008-03-05)
 
 * First release.
+
 
 == 0.0.0 (2008-03-04)
 

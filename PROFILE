@@ -1,16 +1,21 @@
 --- 
-name: cuts
-title: ""
-license: MIT
-maintainer: 
-contact: tigerops-community@rubyforge.org
-suite: 
-copyright: 
-authors: []
+title  : Cuts
+suite  : rubyworks
+summary: Cut-based AOP for Ruby
+contact: trans <transfire@gmail.com>
+created: 2008-02-12"
+license: Apache 2.0
 
-description: |-
+authors:
+  - Thomas Sawyer
+  - Peter Vanbroekhoven
+
+description:
   Cuts is an expiremental implementation of cut-based
   AOP for Ruby written in pure Ruby.
-summary: Cut-based AOP for Ruby
-created: "2008-02-12"
-collection: rubyworks
+
+copyright: 
+  Copyright (c) 2006 Thomas Sawyer and Peter Vanbroekhoven
+
+
+

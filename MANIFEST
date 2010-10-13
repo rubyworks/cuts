@@ -1,0 +1,26 @@
+#!mast lib meta test [A-Z]*
+lib
+lib/cuts
+lib/cuts/aop.rb
+lib/cuts/cut.rb
+lib/cuts.rb
+meta
+meta/abstract
+meta/contact
+meta/created
+meta/homepage
+meta/license
+meta/package
+meta/project
+meta/repository
+meta/summary
+meta/version
+test
+test/test_aop.rb
+test/test_cut.rb
+Rakefile
+RELEASE
+LICENSE
+README
+HISTORY
+RCR.textile

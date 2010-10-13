@@ -1,4 +1,4 @@
-name : cuts
-major: 1
-minor: 0
-patch: 0
+name    : cuts
+date    : 2008-11-24
+version : 1.0.0
+

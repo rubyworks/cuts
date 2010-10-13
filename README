@@ -1,47 +1,21 @@
-= Cuts
+NAME
+  cuts
 
+URL
   http://cuts.rubyforge.org
 
+SYNOPSIS
+  Cuts is an expiremental implementation of cut-based AOP for Ruby.
 
-== INTRODUCTION
-
-Cuts is an expiremental implementation of cut-based AOP for Ruby.
-
-
-
-== RELEASE NOTES
-
-Please see RELEASE file.
-
-
-
-== HOW TO INSTALL
-
-To install with RubyGems simply open a console and type:
-
+INSTALL
   gem install cuts
 
-To manually installation, you will need the Ruby Setup package
-(http://setup.rubyforge.org). Then download the tgz package
-and type:
+USAGE
+  See RDoc API documentation.
 
-  $ tar -xvzf cuts-x.y.z.tgz
-  $ cd cuts-x.y.z.tgz
-  $ sudo setup.rb
+LICENSE
+  Apache 2.0 License
 
-
-
-== USAGE
-
-Please see RDoc API documentation.
-
-
-
-== LICENSE
-
-Copyright (c) 2008 TigerOps
-
-This program is ditributed unser the terms of the LGPL license.
-
-Please see COPYING file.
+COPYRIGHT
+  Copyright (c) 2008 Thomas Sawyer & Peter Venbroekhoven
 
