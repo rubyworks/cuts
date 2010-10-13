@@ -50,11 +50,8 @@ core implementation (see the Suby homepage). We continue to touch up the
   Please read <a href="rcr.html">Cut-based AOP for Ruby RCR</a>.
 </p>
 
-
-<h1>Initial Release</h1>
-
-<p>The Cuts library comes by way of <a href="http://facets.rubyforge.org">Ruby Facets</a>, where the implementation
-was orginally housed. Becuase of it's empiremental nature, it was deemd best to move it into it's own
+<p>This Cuts library comes by way of <a href="http://facets.rubyforge.org">Ruby Facets</a>, where the implementation
+was orginally housed. Becuase of it's expiremental nature, it was deemd best to move it into it's own
 project as part of the ongoing work to make Facets a rock solid library. Despite being expiremental, this 
 implementation does pass it's unit test. However, it has had litte trial in integrated tests. It will be
 interesting to see if this library, as it matures, can prove robust enough for production use. In either
@@ -65,11 +62,29 @@ is completely in other persons hands.</p>
 
 <p>Install via RubyGems:</p>
 
-<pre><code>
+<pre>
   $ gem install cuts
-</code></pre>
+</pre>
 
-<p>For detailed usage documentation, please refer to the <a href="rdoc/index.html">RDocs</a>.</p>
+<p>Here is a quick and dirty example:</p>
+
+<pre>
+  require 'cuts'
+
+  class C
+    def f ; "f" ; end
+  end
+
+  cut :G < C do
+    def f; '<'+super+'>' ; end
+  end
+
+  c = C.new
+
+  c.f  #=> "&lt;f&gt;"
+</pre>
+
+<p>For detailed usage documentation, please refer to the <a href="docs/api/index.html">API Docs</a>.</p>
 
 
 <h1>Special Thanks</h1>
@@ -87,7 +102,9 @@ is completely in other persons hands.</p>
 </div> <!-- text -->
 
 <div class="copyright">
-  <p>Copyright &#x00A9; 2010 Thomas Sawyer</a></p>
+  <p>Copyright &#x00A9; 2010 <a href="http://trans.github.com">Thomas Sawyer</a> &middot;
+  Art by <a href="http://www.blogger.com/profile/16061315500937089274">Craig Stephens</a>
+  </p>
 </div>
 
 </div> <!-- main -->
