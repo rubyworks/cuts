@@ -1,4 +1,7 @@
 ---
+grancher:
+  active: true
+
 box:
   service: Box
   types  : [gem]
@@ -28,7 +31,7 @@ rdoc:
   exclude  : ~
   main     : ~
   extra    : ~
-  output   : site/doc/api
+  output   : site/docs/api
   active   : true
 
 ridoc:
