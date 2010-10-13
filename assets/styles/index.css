@@ -1,19 +1,18 @@
-
 body { padding: 0; margin: 0;
-       background: #ffffff;
-       font-size: 11pt; font-family: Microsoft sans-serif, sans-serif, helvetica;
+       background: #4cc;
+       font-size: 10pt; font-family: Microsoft sans-serif, sans-serif, helvetica;
        text-align: center;
        color: #222;
        letter-spacing: 1px;
-       line-height: 14pt;
+       line-height: 12pt;
        position: relative; 
 }
 
-h1 { padding-top: 30px; font-size: 2.5em; color: red; }
+h1 { padding-top: 30px; font-size: 2.0em; color: #222; }
 
 h1.top { margin-top: -10px; }
 
-h2 { margin-top: 25px; color: red; }
+h2 { margin-top: 25px; color: #222; }
 
 p {
   font-size: 1em;
@@ -30,16 +29,16 @@ img {
 }
 
 pre {
-  padding: 5px 10px 20px 10px;
+  padding: 5px 5px 10px 10px;
   font-size: 0.9em;
-  background-color: #222222;
+  background-color: #eee;
   /* color: #FF0055; */
   font-weight: bold;
   width: 98%;
-  color: white;
+  color: #222;
 }
 
-a { text-decoration: none; color: #ff0000; font-weight: bold; font-size: 1.1em; }
+a { text-decoration: none; color: #222; font-weight: bold; }
 a:hover { text-decoration: underline; }
 
 pre.script { background-color: #DDFFDD; color: black; }
@@ -59,14 +58,14 @@ pre.script { background-color: #DDFFDD; color: black; }
 }
 
 .title {
-  font: bold 52pt sans-serif;
+  font: bold 56pt sans-serif;
   color: red;
   letter-spacing: 17pt;
-  padding-left: 15px;
+  padding: 0;
+  margin-left: -20px;
 }
 
 .menu {
-  background: #ffffff;
   height: 90px;
   font-size: 1em;
   font-weight: bold;
@@ -78,7 +77,7 @@ pre.script { background-color: #DDFFDD; color: black; }
 }
 
 .menu a {
-  color: red;
+  color: #ffff00;
   text-decoration: none;
   padding: 5px;
 }
@@ -111,7 +110,7 @@ pre.script { background-color: #DDFFDD; color: black; }
 .text {
   text-align: left;
   background: white;
-  border: 1px solid #ff0000;
+  border: 1px solid #ffff00;
   padding: 0 30px 20px 30px;
 }
 
@@ -128,7 +127,7 @@ pre.script { background-color: #DDFFDD; color: black; }
 .copyright {
   height: 72px;
   text-align: left;
-  color: pink;
+  color: white;
   font-size: 0.8em;
   font-weight: bold;
   padding: 10px;
@@ -137,7 +136,7 @@ pre.script { background-color: #DDFFDD; color: black; }
 }
 
 .copyright a {
-  color: pink;
+  color: white;
 }
 
 .important {

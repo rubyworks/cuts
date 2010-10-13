@@ -1,28 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
   <title>Class: Aspect</title>
 
-  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+  
+    <link rel="SHORTCUT ICON" href="./assets/icon/class.png">
+  
 
-  <script src="./js/jquery.js" type="text/javascript"
-    charset="utf-8"></script>
-  <script src="./js/thickbox-compressed.js" type="text/javascript"
-    charset="utf-8"></script>
-  <script src="./js/quicksearch.js" type="text/javascript"
-    charset="utf-8"></script>
-  <script src="./js/darkfish.js" type="text/javascript"
-    charset="utf-8"></script>
+  <link type="text/css" rel="stylesheet" href="./assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="./assets/highlight/styles/github.css" title="GitHub" />
 
+  <script type="text/javascript" charset="utf-8" src="./assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="./assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="./assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="./assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      hookHighlightSyntax();
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind("click", highlightClickTarget);
+    });
+  </script>
 </head>
 <body class="class">
+<div id="main">
 
   <div class="head">
-    <h1 class="class">Aspect</h1>
+    <h1>
+      
+        <img src="./assets/icon/class.png" align="absmiddle">&nbsp;
+      
+      <a href="./index.html">Cuts</a>&nbsp;
+      <a href="/">Aspect</a>
+    </h1>
   </div>
 
   <div id="metadata">
@@ -33,7 +52,7 @@
         <div class="section-body">
           <ul>
           
-            <li><a href="./lib/cuts/aop_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+            <li class="file"><a href="./lib/cuts/aop_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
               class="thickbox" title="lib/cuts/aop.rb">lib/cuts/aop.rb</a></li>
           
           </ul>
@@ -41,6 +60,7 @@
       </div>
 
       <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
 
       
     </div>
@@ -51,9 +71,11 @@
       
       <div id="parent-class-section" class="section">
         <h3 class="section-header">Parent</h3>
-        
-        <p class="link">Module</p>
-        
+        <ul>
+          
+          <li class="class">Module</li>
+          
+        </ul>
       </div>
       
 
@@ -66,11 +88,20 @@
         <h3 class="section-header">Methods</h3>
         <ul class="link-list">
           
-          <li><a href="#M000000">::new</a></li>
+            
+            <li class="singleton">
+              <a href="#method-c-new">::new</a>
+            </li>
           
-          <li><a href="#M000002">#join</a></li>
+            
+            <li class="method">
+              <a href="#method-i-join">#join</a>
+            </li>
           
-          <li><a href="#M000001">#points</a></li>
+            
+            <li class="method">
+              <a href="#method-i-points">#points</a>
+            </li>
           
         </ul>
       </div>
@@ -84,20 +115,20 @@
       
       
       <div id="fileindex-section" class="section project-section">
-        <h3 class="section-header">Files</h3>
+        <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./HISTORY.html">HISTORY</a></li>
+          <li class="file"><a href="./PROFILE.html">PROFILE</a></li>
+        
+          <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
           <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="./RCR_textile.html">RCR.textile</a></li>
-        
           <li class="file"><a href="./README.html">README</a></li>
         
-          <li class="file"><a href="./RELEASE.html">RELEASE</a></li>
-        
           <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="./VERSION.html">VERSION</a></li>
         
         </ul>
       </div>
@@ -105,7 +136,7 @@
 
       <div id="classindex-section" class="section project-section">
         <h3 class="section-header">Class Index
-          <span class="search-toggle"><img src="./images/find.png"
+          <span class="search-toggle"><img src="./assets/icon/find.png"
             height="16" width="16" alt="[+]"
             title="show/hide quicksearch" /></span></h3>
         <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
@@ -138,19 +169,25 @@
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
       </div>
-
-      
     </div>
 
     <div id="validator-badges">
-      Generated with <a href="http://github.com/proutils/rdazzle">Razzle Dazzle Redfish</a>.<br/>
-      <a href="http://validator.w3.org/check/referer">[Validate]</a>
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.4.0
+      <br/><br/>
     </div>
   </div>
 
   <div id="documentation">
 
     <div id="description">
+      
+        <h1>Aspect</h1>
+      
+
       
     </div>
 
@@ -167,7 +204,7 @@
 
     
       <div id="new-method" class="method-detail ">
-        <a name="M000000"></a>
+        <a name="method-c-new"></a>
 
         <div class="method-heading">
         
@@ -179,18 +216,18 @@
 
         <div class="method-description">
           
-          <p class="missing-docs">(Not documented)</p>
+          
           
 
           
           <div class="method-source-code"
             id="new-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 22</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-    <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-    <span class="ruby-identifier">extend</span> <span class="ruby-keyword kw">self</span>
-  <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 22</span>
+22:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(&amp;<span class="ruby-identifier">block</span>)
+23:     <span class="ruby-identifier">instance_eval</span>(&amp;<span class="ruby-identifier">block</span>)
+24:     <span class="ruby-identifier">extend</span> <span class="ruby-keyword kw">self</span>
+25:   <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -206,7 +243,7 @@
 
     
       <div id="join-method" class="method-detail ">
-        <a name="M000002"></a>
+        <a name="method-i-join"></a>
 
         <div class="method-heading">
         
@@ -222,18 +259,17 @@
 TODO Should this accept pattern matches as an alternative to the block too?
 </p>
 <pre>
-     Eg. join(name, pattern=nil, &amp;block)
-</pre>
+     Eg. join(name, pattern=nil, &amp;block)</pre>
           
 
           
           <div class="method-source-code"
             id="join-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 33</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">join</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-    (<span class="ruby-identifier">points</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">block</span>
-  <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 33</span>
+33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">join</span>(<span class="ruby-identifier">name</span>, &amp;<span class="ruby-identifier">block</span>)
+34:     (<span class="ruby-identifier">points</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">block</span>
+35:   <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -243,7 +279,7 @@ TODO Should this accept pattern matches as an alternative to the block too?
 
     
       <div id="points-method" class="method-detail ">
-        <a name="M000001"></a>
+        <a name="method-i-points"></a>
 
         <div class="method-heading">
         
@@ -255,17 +291,17 @@ TODO Should this accept pattern matches as an alternative to the block too?
 
         <div class="method-description">
           
-          <p class="missing-docs">(Not documented)</p>
+          
           
 
           
           <div class="method-source-code"
             id="points-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 27</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">points</span>
-    <span class="ruby-ivar">@points</span> <span class="ruby-operator">||=</span> {}
-  <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 27</span>
+27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">points</span>
+28:     <span class="ruby-ivar">@points</span> <span class="ruby-operator">||=</span> {}
+29:   <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -286,5 +322,7 @@ TODO Should this accept pattern matches as an alternative to the block too?
   
   </div>
 
+</main>
 </body>
 </html>
+
