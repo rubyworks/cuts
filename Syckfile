@@ -75,10 +75,10 @@ email:
 
 #rubyforge:
 #  service : Rubyforge
-#  unixname: <%= suite %>
+#  unixname: <= suite %>
 #  groupid : ~
-#  package : <%= name %>
+#  package : <= name %>
 #  sitemap:
-#    doc/rdoc: <%= name %>
+#    doc/rdoc: <= name %>
 #  active  : false
 
