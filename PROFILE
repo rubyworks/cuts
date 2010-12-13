@@ -1,10 +1,10 @@
 --- 
 title  : Cuts
-suite  : rubyworks
 summary: Cut-based AOP for Ruby
 contact: trans <transfire@gmail.com>
-created: 2008-02-12"
-license: Apache 2.0
+
+requires:
+  - syckle (build)
 
 authors:
   - Thomas Sawyer
@@ -14,8 +14,14 @@ description:
   Cuts is an expiremental implementation of cut-based
   AOP for Ruby written in pure Ruby.
 
+resources:
+  home: http://rubyworks.github.com/cuts
+  code: http://github.com/rubyworks/cuts
+
+company: RubyWorks
+license: Apache 2.0
+created: 2008-02-12
+
 copyright: 
   Copyright (c) 2006 Thomas Sawyer and Peter Vanbroekhoven
-
-
 
