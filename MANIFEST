@@ -1,14 +1,12 @@
-#!mast lib test [A-Z]*
+#!mast .ruby bin lib spec test [A-Z][A-Z]*
+.ruby
 lib/cuts/aop.rb
 lib/cuts/cut.rb
 lib/cuts.rb
 test/test_aop.rb
 test/test_cut.rb
-Rakefile
 HISTORY.rdoc
-PROFILE
 LICENSE
-README
-Syckfile
+README.rdoc
 VERSION
 RCR.textile

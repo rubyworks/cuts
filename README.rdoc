@@ -1,21 +1,72 @@
-NAME
-  cuts
+= Cuts - Cut-based AOP for Ruby
 
-URL
-  http://rubyworks.github.com/cuts
+== Description
 
-SYNOPSIS
-  Cuts is an expiremental implementation of cut-based AOP for Ruby.
+Cuts is an expiremental pure-Ruby implimentation of cut-base AOP.
+Cuts are a failry low-level system, so implementing them in pure-Ruby is no
+simple accomplishment, even for a language as reflective and metaprogrammable as Ruby.
 
-INSTALL
-  gem install cuts
 
-USAGE
-  See RDoc API documentation.
+== History
 
-LICENSE
-  Apache 2.0 License
+Cuts started it's life as a discussion about AOP on Ruby-talk, which led to 
+a in-depth discussion between Trans and Peter Vanbroekhoven. The outcome of those talks
+were three projects. <a href="http://suby.rubyforge.org">Suby</a> an early expiremental
+branch of Ruby; the RCRFoundry, a section of the Ruby Garden Wiki dedicated to jointly
+developing RCRs; and the <a href="rcr.html">Cut-based AOP RCR</a>. 
+The RCR of course, ultimately led to this project, as well as an expiremental Ruby 1.8.3
+core implementation (see the Suby homepage). We continue to touch up the
+<a href="rcr.html">RCR</a> but on the whole it is now complete.</p>
 
-COPYRIGHT
-  Copyright (c) 2008 Thomas Sawyer & Peter Venbroekhoven
+Please read <a href="rcr.html">Cut-based AOP for Ruby RCR</a>.
 
+This Cuts library comes by way of <a href="http://facets.rubyforge.org">Ruby Facets</a>, where the implementation
+was orginally housed. Becuase of it's expiremental nature, it was deemd best to move it into it's own
+project as part of the ongoing work to make Facets a rock solid library. Despite being expiremental, this 
+implementation does pass it's unit test. However, it has had litte trial in integrated tests. It will be
+interesting to see if this library, as it matures, can prove robust enough for production use. In either
+case, clearly it would be preferable to have a Ruby-core implementation instead, but that potential
+is completely in other persons hands.</p>
+
+
+== Usage
+
+Here is a quick and dirty example:
+
+  require 'cuts'
+
+  class C
+    def f ; "f" ; end
+  end
+
+  cut :G < C do
+    def f; '<'+super+'>' ; end
+  end
+
+  c = C.new
+
+  c.f  #=> "&lt;f&gt;"
+
+
+For detailed usage documentation, please refer to the <a href="docs/api/index.html">API Docs</a>.
+
+
+== Install
+
+Install via RubyGems:
+
+  $ gem install cuts
+
+
+== Special Thanks
+
+Special thanks to Peter Van Broekhoven. The man is a genius!
+
+
+== Legal
+
+(Apache 2.0 License)
+
+Cuts, Copyright &#x00A9; 2007 Thomas Sawyer & Peter Van Broekhoven
+
+See NOTICE.rdoc and APACHE2.txt file for details.

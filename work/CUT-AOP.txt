@@ -1,0 +1,352 @@
+== Cut-based AOP ==
+Cuts are an object-oriented programming (OOP) concept for implementing aspect-oriented programming (AOP) in OOP languages. Cuts can be thought of as ''transparent subclasses''. Cuts were invented by Thomas Sawyer (Trans) and Peter Vanbroekhoven in considering how best to bring AOP to the Ruby programming language. However, the idea is generally applicable to any object-oriented programming language.
+
+'''NOTE: What follows is on-going re-edit of original paper on Cuts for Ruby. Over time the document should be fully edited to apply to OOPLs in general.'''
+
+== ABSTRACT ==
+This page presents ''cut-based'' AOP, an efficient and easy-to-use approach to Aspect Oriented Programming for Ruby.
+
+The work herein is the culmination of multi-year discussion and inquiry on the topic of AOP for Ruby. It has been carried-out with the ultimate hope of establishing Ruby as a premier AOP language, if not ''the'' AOP language of choice. Since AOP is a very powerful paradigm for abstracting programming solutions into ''separate concerns'', and shows great promise for improvements in ''code maintenance'' and ''reusability'', it seems only natural that an agile language such as Ruby could provide strong support for this increasing popular pattern of design.
+
+IMPORTANT! This is a new edition of Cut-based AOP and is different from previous editions. The significant change, is that it simplifies the definition of a Cut to it's essential character --a transparent subclass. The remaining AOP support structure are transferred to an Aspect class, which is built on top of these pure Cuts.
+
+== PROBLEM ==
+While Ruby's meta-programming facilities are powerful enough to allow for AOP-esque techniques, Ruby's lack of any ''dedicated'' AOP support makes it difficult and inefficient to apply Aspect Oriented Programming principles to application development and makes it practically impossible to do so in any conventional and thus generally reusable way.
+
+=== Overview of AOP ===
+In AOP, one considers ''aspects of concern'' applicable across multiple classes and methods. Thus AOP is said to address ''cross-cutting'' concerns. Aspects consist of ''advice'', which are methods designed to intercept other methods or events according to specified criteria. This criteria is called a ''point-cut'' and it designates a set of ''join-points''. A join-point (or ''code-point'') is the specific place within a program's execution where the advice can be inserted. In this way, AOP is thought to provide a means of organizing code '''orthogonal''' to OOP techniques.
+
+<pre>
+       ^
+       |
+  OOP  |  Prob Set.
+       |
+       +------------->
+             AOP
+</pre>
+
+The overall concept is very powerful, but likewise it can be difficult to integrate into an underlying system, easily succumbing to limitations in efficiency and subverting the intended ease-of-use and re-usability. For these reasons we believe AOP has not yet become widespread. Our design addresses these issues.
+
+=== Qualifications for AOP ===
+To qualify as an AOP capable language, the following criteria must be given considerable support:
+* '''Interception'''. This is the interjection of advice, adding new processing into certain locations in a system. The locations are called join-points, and advice are typically applied to a set of these points, the point-cut. While there are different types of interception, the most common by far is method-interception, whereby a method call can be supplemented before and/or after its execution. This form of interception is the minimum required of any AOP implementation. In an 100% OOP-based system, it is also the only form of interception required.
+* '''Introduction''' Where interception is behaviour, introduction is state. Introduction makes it possible to add further behaviour to an object, but in contrast to interception, this behaviour is not interleaved with the existing code, allowing AOP "modules" to store there own specific state.
+* '''Inspection''' It's important to have access to as much "control" information about a program as possible, over and above the normal internal state. In other words, meta-information. Arity is a good example of this. Other information, like what a method does, what attributes it modifies, what methods it calls, who calls the method and so on, to the greatest degree available, all further enhance the capabilities of AOP.
+* '''Modularization''' Not only must it be possible to intercept, introduce and inspect, it must also be possible to encapsulate. This encapsulation is the''aspect''. Aspects modularize individual cross-cutting concerns (such as persistence, undo, transactions, locking, caching and so on) into individual modules; possibly consisting of several sub-aspects, by delegation, inheritance or composition.
+
+The above four points are the functional criteria of any implementation of AOP. In addition there are three major ''means of implementation'':
+* '''Compile-time Preprocessing''' With this implementation, advice are weaved into a program prior to compilation or execution. As such, advice are akin to macros. This basis of AOP is the most efficient, for obvious reasons, but is also the least flexible, allowing no alteration based on runtime data.
+* '''Runtime Method Weaving''' Similar to Compile-time Preprocessing, but advice intercept methods dynamically at runtime. This itself can be accomplished in a few ways including simple hooks, subclassing or delegation. This is typically the most useful implementation of AOP in that it is both reasonably efficient and flexible.
+* '''Runtime Event Tracing''' In this form callbacks and/or tracing functions are used to intercept events, or tracepoints. While clearly the most capable basis of implementation, it also tends to be the least efficient.
+
+While the capabilities of these basis largely overlap, they admit of enough distinctions to justify independent support in accordance to the needs of the language. The first of these is generally ill suited to a highly dynamic language like Ruby (although we have recently determined that a hybrid of the first and last may be feasible), and Ruby already has some support for the third basis, albeit limited, via set_trace_func, but Ruby is hampered on the second count. This RCR focuses on the second basis, which is really the most suitable to a dynamic language like Ruby.
+
+=== Design Principles ===
+A mention before getting into the heart of this proposal: The development of this RCR has been guided by the following two important principles:
+* '''Consistent and Intuitive''' The initial spark of this work was the realization that AOP wrapping is equivalent to anonymous subclassing (somewhat similar to singleton classes). Utilizing this equivalency offers advantages in formal design, implementation, syntax and ease of use.
+* '''Make the Common Easy, and the Uncommon Possible''' The vast majority of advice is applicable to specific classes and method wrap join-points. This proposal therefore makes these convenient, while still allowing for more elaborate possibilities.
+
+== PROPOSAL ==
+=== The Cut ===
+The first and foremost requirement of AOP is ''interception''. A few years ago it occurred to us that subclassing itself is very similar to interception. The difference was merely a matter of the visibility of the subclass. With interception, the subclass needed to have its effect ''transparently''. Indeed, ''Transparent subclassing is the fundamental proposition of this RCR.'' To accomplish it in Ruby we propose to introduce a new class called the ''Cut''. A ''cut'' is a primitive unit of aspecting. It is used to encapsulate ''advice for a single class''. Cuts are self-contained units much like classes and therefore can have their own state (introduction) as well as private auxiliary methods. Although the Cut class is very similar to the Class class, it cannot be instantiated. Rather it is used solely as an "invisible overrider". An example will help clarify.
+
+Given a class C:
+  class C
+    def f(*args); 1; end
+    def g(*args); 2; end
+  end
+One would normally subclass C in order to gain new functionality.
+  class A < C
+    def f
+      print '{', super, '}'
+    end
+  end
+  <br/>
+  A.new.f  #=> {1}
+But unlike a regular subclass, a cut acts transparently. So we introduce the 'cut' construction as follows.
+  cut A < C
+    def f
+      print '{', super, '}'
+    end
+  end
+  <br/>
+  C.new.f  #=> {1}
+Now, even though we have instantiated class C, we have the functional equivalent of the subclass of C, namely A. Another way of saying this is that we have ''cut-across'' the behavior of C with A. The cut is advantageous in its fine control of how advice interact with the intercepted class and its simple conformity to OOP design. By utilization of the cut AOP begins to flow naturally into ones programs.
+
+Because the Cut is essentially Class, like a Class it can also be defined anonymously, either through instantiation or as a special singleton. The anonymous definition can be especially convenient for internal wraps; useful for assertion checks, temporary tests, etc.
+  class C
+    def f; 9; end
+    <br/>
+    Cut.new(self) do
+      def f
+        '{' + super + '}'
+      end
+    end
+  end
+  <br/>
+  C.new.f  #=> {9}
+Or through the special singleton form,
+  c = Object.new
+  <br/>
+  def c.f; 8; end
+  <br/>
+  cut << c
+    def f
+      '{' + super + '}'
+    end
+  end
+  <br/>
+  c.f  #=> {8}
+Additionally, Cuts exist in proxy form to allow modules to be "premixed". This is analogous to proxy classes which allow  modules to mixin to the class hierarchy. So too does a proxy-cut include a module, albeit preclusive rather the inclusive in its effect. We offer the module command #preclude to serve as designator of this purpose.
+  module A
+    def f ; "<#{super}>" ; end
+  end
+  <br/>
+  Class T
+    preclude A
+    def f ; "okay" ; end
+  end
+  <br/>
+  T.new.f  #=> "<okay>"
+The Cut class is at the heart of this proposal. The remaining sections build on this basic device, demonstrating how to use it for AOP, and offers some important complementary suggestions to make Ruby more convenient with regard to it and AOP requirements in general.
+
+==== Crosscutting & Targeting ====
+A cut is useful for applying advice which intercept the methods of a single class. But to provide the full advantage of AOP we must also be able to cut-across multiple classes. The simplest means of cross-cutting is by use of a shared module. A shared module can serve as a simple ''aspect'' by its inclusion in a cut for each class.
+  class C
+    def f; 'C'; end
+  end
+  <br/>
+  class D
+    def f; 'D'; end
+  end
+  <br/>
+  module A
+    def f
+      '{' + super + '}'
+    end
+  end
+  <br/>
+  cut Ac < C ; include A ; end
+  cut Ad < D ; include A ; end
+  <br/>
+  C.new.f  #-> {C}
+  D.new.f  #-> {D}
+Using a cut, advice intercept methods of the same name and use #super to call back to those methods --the basics of subclassing. But for advice to be fully reusable it must be possible to designate alternate method-to-advice mapping. The simplest way to do this is by calling secondary methods, as one might normally do within a class.
+  cut A < C
+    def f
+      bracket
+    end
+    <br/>
+    def g
+      bracket
+    end
+    <br/>
+    def bracket
+      '{' + super + '}'  # PROBLEM!
+    end
+  end
+But notice the problem that arises. Super will not be directed to <code>f</code> or <code>g</code> in class C, but to <code>bracket</code> which isn't defined in C. This is not the desired result. A presently possible way to correct this is to pass a closure on the super call of the ''target method''.
+  cut A < C
+    def f
+      bracket( lambda{super} )
+    end
+    <br/>
+    def g
+      bracket( lambda{super} )
+    end
+    <br/>
+    def bracket( target )
+      '{' + target.call + '}'
+    end
+  end
+This works well enough, though one must be careful to avoid name clashes between advice and methods in classes being cut, but it is a rather brutish; nor does it provide any significant ''inspection''. We can improvement upon this by passing the target method itself, but ''enhanced'' to provide the current super context, and usefully, its own name. We might define a method to provide this with something like:
+  def target_method(name,&block)
+    m = method(name)
+    m.send(:define_method, :name, name)
+    m.send(:define_method, :super, &block)
+    m
+  end
+Then we can use it as follows.
+  cut A < C
+    def f
+      bracket( target(:f){super} )
+    end
+    <br/>
+    def g
+      bracket( target(:g){super} )
+    end
+    <br/>
+    def bracket( target )
+      puts 'Advising #{target.name}...'
+      '{' + target.super + '}'
+    end
+  end
+This technique may be common enough to warrant the introduction of a keyword just for the purpose, perhaps the term <code>this</code> would be a good choice. With "this" in place, the above example can be nicely simplified.
+  cut A < C
+    def f
+      bracket( this )
+    end
+    def g
+      bracket( this )
+    end
+    def bracket( target )
+      puts 'Advising #{target.name}...
+      '{' + target.super + '}'
+    end
+  end
+The special call #this could also carry a method's call parameters and block if given; it could even be queried as <code>this.block_given?</code>.
+
+==== Limitations of Cuts ====
+At this point we reached the extent to which Cuts can provide AOP. Cuts are a robust technique provide ''unit-AOP'', ie. per-class interception. This is a powerful tool applicabe to many uses cases. However, to go further we need to look at the two limitations of cuts.
+
+FIRST. Advising multiple methods with a single advice, as we have done in the above examples, is a common case of AOP, a convenient means of redirecting target methods to advice is essential. It is trivial to define a method like the following <code>Cut#redirect_advice</code>:
+  class Cut
+    def redirect_advice( h )
+      c = h.collect { |k,v|
+        "def #{k}(*a,&b) #{v}(this,*a, &b); end"
+      }
+      module_eval c.join("\n")
+    end
+  end
+  <br/>
+  cut A < C
+    redirect_advice :f => :bracket, :g => :bracket
+    def bracket( target )
+      '{' + target.super + '}'
+    end
+  end
+However, it not sufficient for dealing with Ruby's dynamicism. It will only handles methods defined in the target class at the moment the cut is defined. Complete AOP support requires the advice always stay in sync even under dynamic alteration of the targeted class. Ruby already provides means for this via the Module#method_added hook, but robust use of this technique is inconvenient at best. So a proper advice-oriented techinique is neede
+
+SECOND. When using redirected advice or, more importantly, when using modules as reusable aspects: care must be taken in choosing method names so as not to inadvertently interfere with the methods of the class(es) being cut. This can be a problem because it inhibits code reuse, i.e. the ability to design components without regard to where they may be applied. For example:
+  class C
+    def m ; "M" ; end
+    def w ; "W" ; end
+    def d ; w ; end
+  end
+  <br/>
+  module MA
+    def w( target )
+      '{' + target.super + '}'
+    end
+  end
+  <br/>
+  cut A < C
+    include MA
+    def m ; w( this ) ; end
+  end
+  C.new.d  #=> "{W}"
+In this case, #d does not return "W" as expected, but rather "{W}" because the advice in MA caused an unexpected name clash with the #w method in C. To fulfil the true abstraction and re-usability potential of AOP this issue ''must'' be remedied.
+
+One remedy comes from Ruby's ability to dynamically manipulate class/module definitions on the fly, in other words, "sub-classing" the aspect module and applying any required name revisions to avoid the unwanted name clash.
+  class C
+    def m ; "M" ; end
+    def w ; "W" ; end
+    def d ; w ; end
+  end
+  <br/>
+  module MA
+    def w( target )
+      '{' + target.super + '}'
+    end
+  end
+  <br/>
+  module MArC
+    include MA
+    rename_method :q, :w
+  end
+  <br/>
+  cut A < C
+    include MArC
+    def m ; q( this ) ; end
+  end
+The @#rename_method@ effectively alias the original method and undefines it in one call. This solves the clash problem in a very controllable way, which is nice. We can even make it more convenient by defining some helper traits like methods. For instance:
+  cut A < C
+    include MA * { :q => :w }
+    def m ; q( this ) ; end
+  end
+This kind of solution largely address the name clash issue, but it is still less then optimal.
+
+=== The Aspect ===
+To address the limitation of the Cut, we take the next natural step in supporting AOP and create the Aspect. Aspects are similar to Cuts, in fact they can be built via delegation to Cuts, but they are a higher-level structure and support all the AOP features most are accustom, such a pointcuts, join-points and multi-class cross-cutting. An Aspect basically takes the Cut class, builds-in all the target features we handled by hand in Cuts, adds flow control methods for handling Ruby's dynamicism and provides a wholly separate area of encapsulation, which avoids any name clashing.
+
+The primary distinction of Aspects is the #join method, which identifies which methods are to be advised but what advice.
+  class C
+    def f ; "F" ; end
+    def g ; "G" ; end
+  end
+  <br/>
+  aspect A
+    join :f => :bracket, :g => :bracket
+    def bracket( target )
+      '{' + target.super + '}'
+    end
+  end
+  <br/>
+  A.apply_to(C)
+The #join method would also accept wild cards.
+  aspect A
+    join '*' => :bracket
+    <br/>
+    def bracket( target )
+      '{' + target.super + '}'
+    end
+  end
+An it can also take a block which allows us to work with join-points. In the code below, @jp@ is a JoinPoint object.
+  Xa = Aspect.new do
+    join :x do |jp|
+      jp.name == :f or jp.name == :g
+    end
+    <br/>
+    def x(target); '{' + target.super + '}'; end
+  end
+A JoinPoint object is very similar to an internal Ruby frame, and provides parameters based on the targeted method plus many of the same parameters that #set_trace_func can use: event, file, line, id, binding, classname. Though some of these may be omitted for performance reasons.
+
+We don't necessarily need Aspects to cross-cut large swaths of classes. Ruby's built-in reflexion provides means via ObjectSpace.
+  ObjectSpace.each_object(Class) { |c|
+    if c.instance_methods(false).include?(:to_s)
+      Cut.new(c) do
+        def :to_s
+          super.upcase + "!"
+        end
+      end
+    end
+  end
+  <br/>
+  "a lot of shouting for joy".to_s  #=> "A LOT OF SHOUTING FOR JOY!"
+However system-wide effects must by definition be more robust as we can't always account for the nature of each class. So Aspects are much more appropriate to this use. To facilitate this, Aspects offer the #pointcut method.
+  aspect A
+    join :to_s => :to_s
+    def to_s(target)
+      target.super.upcase + "!"
+    end
+  end
+  <br/>
+  A.pointcut do |pc|
+    true if pc.instance_methods(false).include?(:to_s)
+  end
+There are plenty of great applications for broad cross-cutting like this, especially in the way of code inspection, unit testing, debugging, etc. The Aspect is a vital part to AOP as it provides the dynamic flexibility that is required of complete Ruby AOP solution.
+
+== ANALYSIS ==
+The Cut and its supporting infrastructure as described above is designed to be a very robust, easy to use, and efficient, providing better overall AOP support than any other language presently in common use.
+
+In contrast, the traditional approach taken by the most AOP systems today, largely propagated by early implementations like Aspect/J, have proven unwieldy and ironically end-up inhibiting code reuse. Infact, the limited reusabiliy has been speculated elsewhere as a potential primary culprit in the limited penetration of AOP to date. This proposal circumvents these issues by offering a general solution directly integrated into the OOP system, rather than attempting to operate wholly beyond it.
+
+Cuts also trump simple method-wrapping mechanisms, like those proposed in Matz' RUbyConf 2004 presentation. While method hooks are especially convenient, they are weak with regards to SOC (Separation Of Concerns); most notably, method hooks lack ''introduction'' altogether. They also suffer from order of execution ambiguities that must be dealt with by imposing limitations or adding increasingly specialized declarations. Cuts again circumvent these issues by utilizing an inherent OOP construct --the subclass, rather than adding on a new, wholly "other" entity.
+=== Pros ===
+* Provides a robust method-wrapping solution, devoid of order ambiguities.
+* Clear separation of concerns using separate cuts and modular aspects.
+* Based on standard OOP devices, i.e. cuts are essentially subclasses.
+* Cut-based AOP is very easy to understand and thus to use.
+* Implementation is efficient.
+=== Cons ===
+* Cut syntax is a slightly more verbose and entails more overhead than simple method hooks. [Counterpoint: But the difference ''is'' minor. Simple methods hooks could, in point of fact, be implemented via cuts with efficiencies quite close to a simple hook solution.]
+* Cannot advise large numbers of classes in a single ''dedicated'' clause. [Counterpoint: Cuts are specifically designed ''not'' to do this as the inability also has advantage, not the least of which is performance efficiency. Moreover it has been discovered that such large swaths of cross-cutting are in actuality the uncommon usecases, more suitable to specialized applications like unit-testing and profiling.]
+* AOP traditionalists might be a bit taken aback by the Cut-based approach in that it does not specifically reference join-points and pointcuts. [Counerpoint: As above, cuts provide a better approach for the most common AOP usecases.]
+* Until local instance variables are available, and/or local instance methods, ''introduction'' is not as strong as it really needs to be for good AOP coverage. [Counterpoint: We suspect this is likely to be addressed in a future version of Ruby.]
+
+== IMPLEMENTAITON ==
+One implementation detail, not specifically decided by this proposal, is whether cuts may or may not be applied to other cuts. If not allowed, once a cut is applied to a class, a subsequent cut can not be slipped in between it and that class. Cuts are intended to work transparently and offering this feature could thwart this principle. On the other hand, if allowed, it would provided a means for a cut to "underwrite" another cut providing greater flexibility in "meta"-controlling the effects of cuts.
+
+Another implementation detail to consider that falls outside the strict scope of this proposal, but that goes a long way toward bolstering it, is the limits on ''introduction'' due to the non-locality of instance variables and methods. Presently cuts will only be able to provide introduction through class variables --useful but weak by comparison. With the advent of locals in a future version of Ruby, cuts would gain robust introduction strengths.
+
+The first real step in implementation is, of course, the creation of the transparent subclass, the Cut. This requires an addition in the structure of an object's class hierarchy; essentially a new pointer to a chain of cuts, the last pointing back at the cut class itself --a very simpleton explanation to be sure. But fortunately, a well written Ruby patch has been coded by Peter Vanbroekhoven. It implements most of the core functionality described here, and should serve as a means to investigate and test the potential utility of this RCR. It may also serve as a basis for including these AOP features into Ruby proper, should this RCR be accepted. At this time the patch applies to Ruy 1.8.2  and can be download from [http://rubyforge.org/projects/suby/ here] under "transparent subclass (cut)".
