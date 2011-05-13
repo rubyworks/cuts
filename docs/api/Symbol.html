@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
   <title>Class: Symbol</title>
 
@@ -39,8 +39,8 @@
       
         <img src="./assets/icon/class.png" align="absmiddle">&nbsp;
       
-      <a href="./index.html">Cuts</a>&nbsp;
-      <a href="/">Symbol</a>
+      <a href="./index.html">&quot;Cuts&quot;</a>&nbsp;
+      <a href="">Symbol</a>
     </h1>
   </div>
 
@@ -73,8 +73,10 @@
         <h3 class="section-header">Parent</h3>
         <ul>
           
-          <!-- why was this class="link" ? -->
-          <li class="class"><a href="Object.html">Object</a></li>
+            
+              <!-- why was this class="link" ? -->
+              <li class="class"><a href="Object.html">Object</a></li>
+            
           
         </ul>
       </div>
@@ -91,7 +93,7 @@
           
             
             <li class="method">
-              <a href="#method-i-%3C">#<</a>
+              <a href="#method-i-3C">#<</a>
             </li>
           
         </ul>
@@ -109,17 +111,19 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+          <li class="file"><a href="./Profile.html">Profile</a></li>
         
           <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
-          <li class="file"><a href="./PROFILE.html">PROFILE</a></li>
-        
           <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="./README.html">README</a></li>
+          <li class="file"><a href="./Redfile.html">Redfile</a></li>
+        
+          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
         
           <li class="file"><a href="./VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
         </ul>
       </div>
@@ -167,7 +171,9 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
       <br/><br/>
     </div>
   </div>
@@ -194,8 +200,8 @@
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%3C"></a>
+      <div id="3C-method" class="method-detail ">
+        <a name="method-i-3C"></a>
 
         <div class="method-heading">
         
@@ -207,24 +213,22 @@
 
         <div class="method-description">
           
-          <p>
-A little tick to simulate subclassing literal syntax.
-</p>
+          <p>A little tick to simulate subclassing literal syntax.</p>
           
 
           
           <div class="method-source-code"
-            id="--source">
+            id="3C-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/cuts/cut.rb, line 112</span>
-112:   <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;</span>(<span class="ruby-identifier">klass</span>)
-113:     <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Class</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">klass</span>
-114:       [<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">klass</span>]
-115:     <span class="ruby-keyword kw">else</span>
-116:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoMethodError</span>, <span class="ruby-node">&quot;undefined method `&lt;' for :#{self}:Symbol&quot;</span>
-117:       <span class="ruby-comment cmt">#_op_lt_without_cuts(cut_class)</span>
-118:     <span class="ruby-keyword kw">end</span>
-119:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/cut.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Class</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">klass</span>
+    [<span class="ruby-keyword">self</span>, <span class="ruby-identifier">klass</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoMethodError</span>, <span class="ruby-node">&quot;undefined method `&lt;' for :#{self}:Symbol&quot;</span>
+    <span class="ruby-comment">#_op_lt_without_cuts(cut_class)</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

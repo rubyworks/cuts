@@ -1,3 +1,5 @@
+html { padding: 0; margin: 0; }
+
 body { padding: 0; margin: 0;
        font-size: 10pt; font-family: Microsoft sans-serif, sans-serif, helvetica;
        text-align: center;
@@ -5,7 +7,7 @@ body { padding: 0; margin: 0;
        letter-spacing: 1px;
        line-height: 12pt;
        position: relative; 
-       background: url(../images/scissors3.jpg) no-repeat center 30px black;
+       background: url(scissors.jpg) center 30px black;
 }
 
 h1 { padding-top: 30px; font-size: 2.0em; color: #222; }
@@ -47,10 +49,10 @@ pre.script { background-color: #DDFFDD; color: black; }
   vertical-align: top;
   width: 750px;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 0;
 }
 
-.logo {
+#header {
   height: 90px;
   margin-left: 0;
   margin-right: 20px;
@@ -58,33 +60,34 @@ pre.script { background-color: #DDFFDD; color: black; }
   text-align: left;
 }
 
-.title {
+#header .title {
   font: bold 56pt sans-serif;
-  color: #440000;
+  color: #ee9900;
   letter-spacing: 17pt;
   padding: 0;
   margin-left: -20px;
+  text-shadow: 2px 2px #644;
 }
 
 .menu {
   height: 90px;
-  font-size: 1em;
   font-weight: bold;
   text-align: right;
   padding: 20px 10px 0 0;
   line-height: 42px;
-  color: #440000;
+  color: #ee9900;
   float: right;
 }
 
 .menu a {
-  color: #ddcc00;
+  font-size: 1.1em;
+  color: #fff;
   text-decoration: none;
   padding: 5px;
 }
 
 .menu a:hover {
-  color: #ffff00;
+  color: #ee9900;
   text-decoration: underline;
 }
 
@@ -98,20 +101,14 @@ pre.script { background-color: #DDFFDD; color: black; }
   position: relative;
 }
 
-.adframe {
-  width: 200px;
-  height: 1600px;
-  padding: 0;
-  border: none;
-  background: white;
-  position: absolute;
-  right: 20; top: 10;
+#footer {
+  margin-top: 30px;
 }
 
 .text {
   text-align: left;
   background: white;
-  border: 1px solid #ffff00;
+  border: 1px solid #ee9900;
   padding: 0 30px 20px 30px;
   opacity: 0.7;
 }
@@ -135,6 +132,7 @@ pre.script { background-color: #DDFFDD; color: black; }
   padding: 10px;
   padding-left: 20px;
   border-top: 2px solid white;
+  margin-top: 20px;
 }
 
 .copyright a {

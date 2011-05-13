@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
   <title>Class: Target</title>
 
@@ -39,8 +39,8 @@
       
         <img src="./assets/icon/class.png" align="absmiddle">&nbsp;
       
-      <a href="./index.html">Cuts</a>&nbsp;
-      <a href="/">Target</a>
+      <a href="./index.html">&quot;Cuts&quot;</a>&nbsp;
+      <a href="">Target</a>
     </h1>
   </div>
 
@@ -73,8 +73,10 @@
         <h3 class="section-header">Parent</h3>
         <ul>
           
-          <!-- why was this class="link" ? -->
-          <li class="class"><a href="Object.html">Object</a></li>
+            
+              <!-- why was this class="link" ? -->
+              <li class="class"><a href="Object.html">Object</a></li>
+            
           
         </ul>
       </div>
@@ -119,17 +121,19 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+          <li class="file"><a href="./Profile.html">Profile</a></li>
         
           <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
-          <li class="file"><a href="./PROFILE.html">PROFILE</a></li>
-        
           <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="./README.html">README</a></li>
+          <li class="file"><a href="./Redfile.html">Redfile</a></li>
+        
+          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
         
           <li class="file"><a href="./VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
         </ul>
       </div>
@@ -177,7 +181,9 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
       <br/><br/>
     </div>
   </div>
@@ -189,28 +195,24 @@
         <h1>Target</h1>
       
 
-      <p>
-module LogAspect
-</p>
-<pre>
-  extend self
+      
+<p>module LogAspect</p>
 
-  join :log do |jp|
-    jp.name == :x
-  end
+<pre>extend self
 
-  def log(target)
-    r = target.super
-    ...
-    return r
-  end
-</pre>
-<p>
+join :log do |jp|
+  jp.name == :x
 end
-</p>
-<p>
-class X
-</p>
+
+def log(target)
+  r = target.super
+  ...
+  return r
+end</pre>
+
+<p>end</p>
+
+<p>class X</p>
 
     </div>
 
@@ -246,13 +248,13 @@ class X
           <div class="method-source-code"
             id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 91</span>
-91:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>, *<span class="ruby-identifier">target</span>, &amp;<span class="ruby-identifier">block</span>)
-92:     <span class="ruby-ivar">@aspect</span> = <span class="ruby-identifier">aspect</span>
-93:     <span class="ruby-ivar">@advice</span> = <span class="ruby-identifier">advice</span>
-94:     <span class="ruby-ivar">@target</span> = <span class="ruby-identifier">target</span>
-95:     <span class="ruby-ivar">@block</span>  = <span class="ruby-identifier">block</span>
-96:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/aop.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>, *<span class="ruby-identifier">target</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@aspect</span> = <span class="ruby-identifier">aspect</span>
+  <span class="ruby-ivar">@advice</span> = <span class="ruby-identifier">advice</span>
+  <span class="ruby-ivar">@target</span> = <span class="ruby-identifier">target</span>
+  <span class="ruby-ivar">@block</span>  = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -310,10 +312,10 @@ class X
           <div class="method-source-code"
             id="super-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 98</span>
- 98:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">super</span>
- 99:     <span class="ruby-ivar">@aspect</span>.<span class="ruby-identifier">send</span>(<span class="ruby-ivar">@advice</span>, *<span class="ruby-ivar">@target</span>, &amp;<span class="ruby-ivar">@block</span>)
-100:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/aop.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@aspect</span>.<span class="ruby-identifier">send</span>(<span class="ruby-ivar">@advice</span>, *<span class="ruby-ivar">@target</span>, &amp;<span class="ruby-ivar">@block</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

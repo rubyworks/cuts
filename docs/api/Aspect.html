@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
   <title>Class: Aspect</title>
 
@@ -39,8 +39,8 @@
       
         <img src="./assets/icon/class.png" align="absmiddle">&nbsp;
       
-      <a href="./index.html">Cuts</a>&nbsp;
-      <a href="/">Aspect</a>
+      <a href="./index.html">&quot;Cuts&quot;</a>&nbsp;
+      <a href="">Aspect</a>
     </h1>
   </div>
 
@@ -73,7 +73,9 @@
         <h3 class="section-header">Parent</h3>
         <ul>
           
-          <li class="class">Module</li>
+            
+              <li class="class">Module</li>
+            
           
         </ul>
       </div>
@@ -118,17 +120,19 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+          <li class="file"><a href="./Profile.html">Profile</a></li>
         
           <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
-          <li class="file"><a href="./PROFILE.html">PROFILE</a></li>
-        
           <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="./README.html">README</a></li>
+          <li class="file"><a href="./Redfile.html">Redfile</a></li>
+        
+          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
         
           <li class="file"><a href="./VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
         </ul>
       </div>
@@ -176,7 +180,9 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
       <br/><br/>
     </div>
   </div>
@@ -223,11 +229,11 @@
           <div class="method-source-code"
             id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 22</span>
-22:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(&amp;<span class="ruby-identifier">block</span>)
-23:     <span class="ruby-identifier">instance_eval</span>(&amp;<span class="ruby-identifier">block</span>)
-24:     <span class="ruby-identifier">extend</span> <span class="ruby-keyword kw">self</span>
-25:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/aop.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(&amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">instance_eval</span>(&amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">extend</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -255,21 +261,19 @@
 
         <div class="method-description">
           
-          <p>
-TODO Should this accept pattern matches as an alternative to the block too?
-</p>
-<pre>
-     Eg. join(name, pattern=nil, &amp;block)</pre>
+          <p>TODO Should this accept pattern matches as an alternative to the block too?</p>
+
+<pre>Eg. join(name, pattern=nil, &amp;block)</pre>
           
 
           
           <div class="method-source-code"
             id="join-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 33</span>
-33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">join</span>(<span class="ruby-identifier">name</span>, &amp;<span class="ruby-identifier">block</span>)
-34:     (<span class="ruby-identifier">points</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">block</span>
-35:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/aop.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join</span>(<span class="ruby-identifier">name</span>, &amp;<span class="ruby-identifier">block</span>)
+  (<span class="ruby-identifier">points</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -298,10 +302,10 @@ TODO Should this accept pattern matches as an alternative to the block too?
           <div class="method-source-code"
             id="points-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 27</span>
-27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">points</span>
-28:     <span class="ruby-ivar">@points</span> <span class="ruby-operator">||=</span> {}
-29:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/aop.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">points</span>
+  <span class="ruby-ivar">@points</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

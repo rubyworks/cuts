@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
   <title>Module: Kernel</title>
 
@@ -39,8 +39,8 @@
       
         <img src="./assets/icon/module.png" align="absmiddle">&nbsp;
       
-      <a href="./index.html">Cuts</a>&nbsp;
-      <a href="/">Kernel</a>
+      <a href="./index.html">&quot;Cuts&quot;</a>&nbsp;
+      <a href="">Kernel</a>
     </h1>
   </div>
 
@@ -99,17 +99,19 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+          <li class="file"><a href="./Profile.html">Profile</a></li>
         
           <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
-          <li class="file"><a href="./PROFILE.html">PROFILE</a></li>
-        
           <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="./README.html">README</a></li>
+          <li class="file"><a href="./Redfile.html">Redfile</a></li>
+        
+          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
         
           <li class="file"><a href="./VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
         </ul>
       </div>
@@ -157,7 +159,9 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
       <br/><br/>
     </div>
   </div>
@@ -197,33 +201,31 @@
 
         <div class="method-description">
           
-          <p>
-<a href="Cut.html">Cut</a> convienence method.
-</p>
+          <p><a href="Cut.html">Cut</a> convienence method.</p>
           
 
           
           <div class="method-source-code"
             id="cut-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/cuts/cut.rb, line 124</span>
-124:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cut</span>(<span class="ruby-identifier">klass</span>, &amp;<span class="ruby-identifier">block</span>)
-125:     <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">klass</span>
-126:     <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Array</span>
-127:       <span class="ruby-identifier">name</span>, <span class="ruby-identifier">klass</span> = *<span class="ruby-identifier">klass</span>
-128:     <span class="ruby-keyword kw">else</span>
-129:       <span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">nil</span>
-130:     <span class="ruby-keyword kw">end</span>
-131: 
-132:     <span class="ruby-identifier">cut</span> = <span class="ruby-constant">Cut</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">klass</span>, &amp;<span class="ruby-identifier">block</span>)
-133: 
-134:     <span class="ruby-comment cmt"># How to handle main, but not other instance spaces?</span>
-135:     <span class="ruby-comment cmt">#klass.modspace::const_set(klass.basename, cut)</span>
-136:     <span class="ruby-identifier">mod</span> = (<span class="ruby-constant">Module</span> <span class="ruby-operator">===</span> <span class="ruby-keyword kw">self</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">self</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Object</span>)
-137:     <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">const_set</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">cut</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span>  <span class="ruby-comment cmt"># &lt;&lt;- this is what we don't have in Cut.new</span>
-138: 
-139:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">cut</span>
-140:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/cut.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cut</span>(<span class="ruby-identifier">klass</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">klass</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-identifier">name</span>, <span class="ruby-identifier">klass</span> = *<span class="ruby-identifier">klass</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">name</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">cut</span> = <span class="ruby-constant">Cut</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">klass</span>, &amp;<span class="ruby-identifier">block</span>)
+
+  <span class="ruby-comment"># How to handle main, but not other instance spaces?</span>
+  <span class="ruby-comment">#klass.modspace::const_set(klass.basename, cut)</span>
+  <span class="ruby-identifier">mod</span> = (<span class="ruby-constant">Module</span> <span class="ruby-operator">===</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Object</span>)
+  <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">const_set</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">cut</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>  <span class="ruby-comment"># &lt;&lt;- this is what we don't have in Cut.new</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">cut</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

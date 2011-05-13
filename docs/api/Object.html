@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
   <title>Class: Object</title>
 
@@ -39,8 +39,8 @@
       
         <img src="./assets/icon/class.png" align="absmiddle">&nbsp;
       
-      <a href="./index.html">Cuts</a>&nbsp;
-      <a href="/">Object</a>
+      <a href="./index.html">&quot;Cuts&quot;</a>&nbsp;
+      <a href="">Object</a>
     </h1>
   </div>
 
@@ -51,6 +51,9 @@
         <h3 class="section-header">In Files</h3>
         <div class="section-body">
           <ul>
+          
+            <li class="file"><a href="./lib/cuts/aop_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/cuts/aop.rb">lib/cuts/aop.rb</a></li>
           
             <li class="file"><a href="./lib/cuts/cut_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
               class="thickbox" title="lib/cuts/cut.rb">lib/cuts/cut.rb</a></li>
@@ -73,8 +76,7 @@
         <h3 class="section-header">Parent</h3>
         <ul>
           
-          <!-- why was this class="link" ? -->
-          <li class="class"><a href="Object.html">Object</a></li>
+            <li class="class">Object</li>
           
         </ul>
       </div>
@@ -129,17 +131,19 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+          <li class="file"><a href="./Profile.html">Profile</a></li>
         
           <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
-          <li class="file"><a href="./PROFILE.html">PROFILE</a></li>
-        
           <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="./README.html">README</a></li>
+          <li class="file"><a href="./Redfile.html">Redfile</a></li>
+        
+          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
         
           <li class="file"><a href="./VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
         </ul>
       </div>
@@ -187,7 +191,9 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
       <br/><br/>
     </div>
   </div>
@@ -214,7 +220,7 @@
       <h3 class="section-header">Public Class Methods</h3>
 
     
-      <div id="-new-method" class="method-detail method-alias">
+      <div id="_new-method" class="method-detail method-alias">
         <a name="method-c-_new"></a>
 
         <div class="method-heading">
@@ -257,48 +263,48 @@
           <div class="method-source-code"
             id="extended-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 112</span>
-112:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">extended</span>(<span class="ruby-identifier">obj</span>)
-113:       <span class="ruby-identifier">base</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">class</span> <span class="ruby-comment cmt">#__base__</span>
-114: 
-115:       <span class="ruby-identifier">methods</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">methods</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">private_methods</span> <span class="ruby-operator">-</span> [<span class="ruby-value str">'advices'</span>]
-116: 
-117:       <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sym</span><span class="ruby-operator">|</span>
-118: 
-119:         <span class="ruby-comment cmt">#meth = obj.method(sym)</span>
-120: 
-121:         <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">sym</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span>*<span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-comment cmt">#, &amp;blk|  # TODO imporove interface mirroring</span>
-122:           <span class="ruby-identifier">jp</span> = <span class="ruby-constant">Joinpoint</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">base</span>, <span class="ruby-identifier">sym</span>, *<span class="ruby-identifier">args</span>) <span class="ruby-comment cmt">#, &amp;blk)</span>
-123: 
-124:           <span class="ruby-comment cmt"># calculate advices on first use.</span>
-125:           <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>]
-126:             <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>] = []
-127:             <span class="ruby-identifier">base</span>.<span class="ruby-identifier">aspects</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">aspect</span><span class="ruby-operator">|</span>
-128:               <span class="ruby-identifier">aspect</span>.<span class="ruby-identifier">points</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">advice</span>, <span class="ruby-identifier">matches</span><span class="ruby-operator">|</span>
-129:                 <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">match</span><span class="ruby-operator">|</span>
-130:                   <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">jp</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">match</span>
-131:                     <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>] <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>]
-132:                   <span class="ruby-keyword kw">end</span>
-133:                 <span class="ruby-keyword kw">end</span>
-134:               <span class="ruby-keyword kw">end</span>
-135:             <span class="ruby-keyword kw">end</span>
-136:           <span class="ruby-keyword kw">end</span>
-137:           
-138:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>].<span class="ruby-identifier">empty?</span>
-139:             <span class="ruby-keyword kw">super</span>
-140:           <span class="ruby-keyword kw">else</span>
-141:             <span class="ruby-identifier">target</span> = <span class="ruby-identifier">jp</span> <span class="ruby-comment cmt">#Target.new(self, sym, *args, &amp;blk)  # Target == JoinPoint ?</span>
-142:             <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>)<span class="ruby-operator">|</span>
-143:               <span class="ruby-identifier">target</span> = <span class="ruby-constant">Target</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>, <span class="ruby-identifier">target</span>)
-144:             <span class="ruby-keyword kw">end</span>
-145:             <span class="ruby-identifier">target</span>.<span class="ruby-identifier">super</span>
-146:           <span class="ruby-keyword kw">end</span>
-147: 
-148:         <span class="ruby-keyword kw">end</span>
-149: 
-150:       <span class="ruby-keyword kw">end</span>
-151: 
-152:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/aop.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">extended</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-identifier">base</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">class</span> <span class="ruby-comment">#__base__</span>
+
+  <span class="ruby-identifier">methods</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">methods</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">private_methods</span> <span class="ruby-operator">-</span> [<span class="ruby-string">'advices'</span>]
+
+  <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sym</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-comment">#meth = obj.method(sym)</span>
+
+    <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">sym</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>*<span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-comment">#, &amp;blk|  # TODO imporove interface mirroring</span>
+      <span class="ruby-identifier">jp</span> = <span class="ruby-constant">Joinpoint</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">base</span>, <span class="ruby-identifier">sym</span>, *<span class="ruby-identifier">args</span>) <span class="ruby-comment">#, &amp;blk)</span>
+
+      <span class="ruby-comment"># calculate advices on first use.</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>]
+        <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>] = []
+        <span class="ruby-identifier">base</span>.<span class="ruby-identifier">aspects</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">aspect</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">aspect</span>.<span class="ruby-identifier">points</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">advice</span>, <span class="ruby-identifier">matches</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">match</span><span class="ruby-operator">|</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">jp</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">match</span>
+                <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>] <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>]
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>].<span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword">super</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">target</span> = <span class="ruby-identifier">jp</span> <span class="ruby-comment">#Target.new(self, sym, *args, &amp;blk)  # Target == JoinPoint ?</span>
+        <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>)<span class="ruby-operator">|</span>
+          <span class="ruby-identifier">target</span> = <span class="ruby-constant">Target</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>, <span class="ruby-identifier">target</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">target</span>.<span class="ruby-identifier">super</span>
+      <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -327,14 +333,14 @@
           <div class="method-source-code"
             id="new-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/cuts/cut.rb, line 97</span>
- 97:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>(*<span class="ruby-identifier">a</span>, &amp;<span class="ruby-identifier">b</span>)
- 98:       <span class="ruby-identifier">o</span> = <span class="ruby-identifier">_new</span>(*<span class="ruby-identifier">a</span>, &amp;<span class="ruby-identifier">b</span>)
- 99:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">cuts</span>.<span class="ruby-identifier">empty?</span>
-100:         <span class="ruby-identifier">o</span>.<span class="ruby-identifier">extend</span> *<span class="ruby-identifier">cuts</span>
-101:       <span class="ruby-keyword kw">end</span>
-102:       <span class="ruby-identifier">o</span>
-103:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/cut.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>(*<span class="ruby-identifier">a</span>, &amp;<span class="ruby-identifier">b</span>)
+  <span class="ruby-identifier">o</span> = <span class="ruby-identifier">_new</span>(*<span class="ruby-identifier">a</span>, &amp;<span class="ruby-identifier">b</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">cuts</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">extend</span> *<span class="ruby-identifier">cuts</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">o</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -373,8 +379,8 @@
           <div class="method-source-code"
             id="advices-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 110</span>
-110:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">advices</span>; <span class="ruby-ivar">@advices</span> <span class="ruby-operator">||=</span> {}; <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/aop.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">advices</span>; <span class="ruby-ivar">@advices</span> <span class="ruby-operator">||=</span> {}; <span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -383,7 +389,7 @@
       </div>
 
     
-      <div id="cross-cut-method" class="method-detail ">
+      <div id="cross_cut-method" class="method-detail ">
         <a name="method-i-cross_cut"></a>
 
         <div class="method-heading">
@@ -401,60 +407,60 @@
 
           
           <div class="method-source-code"
-            id="cross-cut-source">
+            id="cross_cut-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 106</span>
-106: <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cross_cut</span>(<span class="ruby-identifier">klass</span>)
-107:   <span class="ruby-constant">Cut</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">klass</span>) <span class="ruby-keyword kw">do</span>
-108:     <span class="ruby-identifier">define_method</span> <span class="ruby-value">:__base__</span> <span class="ruby-keyword kw">do</span> <span class="ruby-identifier">klass</span> <span class="ruby-keyword kw">end</span>
-109: 
-110:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">advices</span>; <span class="ruby-ivar">@advices</span> <span class="ruby-operator">||=</span> {}; <span class="ruby-keyword kw">end</span>
-111: 
-112:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">extended</span>(<span class="ruby-identifier">obj</span>)
-113:       <span class="ruby-identifier">base</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">class</span> <span class="ruby-comment cmt">#__base__</span>
-114: 
-115:       <span class="ruby-identifier">methods</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">methods</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">private_methods</span> <span class="ruby-operator">-</span> [<span class="ruby-value str">'advices'</span>]
-116: 
-117:       <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sym</span><span class="ruby-operator">|</span>
-118: 
-119:         <span class="ruby-comment cmt">#meth = obj.method(sym)</span>
-120: 
-121:         <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">sym</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span>*<span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-comment cmt">#, &amp;blk|  # TODO imporove interface mirroring</span>
-122:           <span class="ruby-identifier">jp</span> = <span class="ruby-constant">Joinpoint</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">base</span>, <span class="ruby-identifier">sym</span>, *<span class="ruby-identifier">args</span>) <span class="ruby-comment cmt">#, &amp;blk)</span>
-123: 
-124:           <span class="ruby-comment cmt"># calculate advices on first use.</span>
-125:           <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>]
-126:             <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>] = []
-127:             <span class="ruby-identifier">base</span>.<span class="ruby-identifier">aspects</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">aspect</span><span class="ruby-operator">|</span>
-128:               <span class="ruby-identifier">aspect</span>.<span class="ruby-identifier">points</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">advice</span>, <span class="ruby-identifier">matches</span><span class="ruby-operator">|</span>
-129:                 <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">match</span><span class="ruby-operator">|</span>
-130:                   <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">jp</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">match</span>
-131:                     <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>] <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>]
-132:                   <span class="ruby-keyword kw">end</span>
-133:                 <span class="ruby-keyword kw">end</span>
-134:               <span class="ruby-keyword kw">end</span>
-135:             <span class="ruby-keyword kw">end</span>
-136:           <span class="ruby-keyword kw">end</span>
-137:           
-138:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>].<span class="ruby-identifier">empty?</span>
-139:             <span class="ruby-keyword kw">super</span>
-140:           <span class="ruby-keyword kw">else</span>
-141:             <span class="ruby-identifier">target</span> = <span class="ruby-identifier">jp</span> <span class="ruby-comment cmt">#Target.new(self, sym, *args, &amp;blk)  # Target == JoinPoint ?</span>
-142:             <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>)<span class="ruby-operator">|</span>
-143:               <span class="ruby-identifier">target</span> = <span class="ruby-constant">Target</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>, <span class="ruby-identifier">target</span>)
-144:             <span class="ruby-keyword kw">end</span>
-145:             <span class="ruby-identifier">target</span>.<span class="ruby-identifier">super</span>
-146:           <span class="ruby-keyword kw">end</span>
-147: 
-148:         <span class="ruby-keyword kw">end</span>
-149: 
-150:       <span class="ruby-keyword kw">end</span>
-151: 
-152:     <span class="ruby-keyword kw">end</span>
-153: 
-154:   <span class="ruby-keyword kw">end</span>
-155: 
-156: <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/aop.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cross_cut</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-constant">Cut</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">klass</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">define_method</span> <span class="ruby-value">:__base__</span> <span class="ruby-keyword">do</span> <span class="ruby-identifier">klass</span> <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">advices</span>; <span class="ruby-ivar">@advices</span> <span class="ruby-operator">||=</span> {}; <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">extended</span>(<span class="ruby-identifier">obj</span>)
+      <span class="ruby-identifier">base</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">class</span> <span class="ruby-comment">#__base__</span>
+
+      <span class="ruby-identifier">methods</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">methods</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">private_methods</span> <span class="ruby-operator">-</span> [<span class="ruby-string">'advices'</span>]
+
+      <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sym</span><span class="ruby-operator">|</span>
+
+        <span class="ruby-comment">#meth = obj.method(sym)</span>
+
+        <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">sym</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>*<span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-comment">#, &amp;blk|  # TODO imporove interface mirroring</span>
+          <span class="ruby-identifier">jp</span> = <span class="ruby-constant">Joinpoint</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">base</span>, <span class="ruby-identifier">sym</span>, *<span class="ruby-identifier">args</span>) <span class="ruby-comment">#, &amp;blk)</span>
+
+          <span class="ruby-comment"># calculate advices on first use.</span>
+          <span class="ruby-keyword">unless</span> <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>]
+            <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>] = []
+            <span class="ruby-identifier">base</span>.<span class="ruby-identifier">aspects</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">aspect</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">aspect</span>.<span class="ruby-identifier">points</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">advice</span>, <span class="ruby-identifier">matches</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">match</span><span class="ruby-operator">|</span>
+                  <span class="ruby-keyword">if</span> <span class="ruby-identifier">jp</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">match</span>
+                    <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>] <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>]
+                  <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>].<span class="ruby-identifier">empty?</span>
+            <span class="ruby-keyword">super</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">target</span> = <span class="ruby-identifier">jp</span> <span class="ruby-comment">#Target.new(self, sym, *args, &amp;blk)  # Target == JoinPoint ?</span>
+            <span class="ruby-identifier">advices</span>[<span class="ruby-identifier">sym</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>)<span class="ruby-operator">|</span>
+              <span class="ruby-identifier">target</span> = <span class="ruby-constant">Target</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">aspect</span>, <span class="ruby-identifier">advice</span>, <span class="ruby-identifier">target</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">target</span>.<span class="ruby-identifier">super</span>
+          <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

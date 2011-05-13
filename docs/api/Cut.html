@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
   <title>Class: Cut</title>
 
@@ -39,8 +39,8 @@
       
         <img src="./assets/icon/class.png" align="absmiddle">&nbsp;
       
-      <a href="./index.html">Cuts</a>&nbsp;
-      <a href="/">Cut</a>
+      <a href="./index.html">&quot;Cuts&quot;</a>&nbsp;
+      <a href="">Cut</a>
     </h1>
   </div>
 
@@ -73,7 +73,9 @@
         <h3 class="section-header">Parent</h3>
         <ul>
           
-          <li class="class">Module</li>
+            
+              <li class="class">Module</li>
+            
           
         </ul>
       </div>
@@ -108,17 +110,19 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+          <li class="file"><a href="./Profile.html">Profile</a></li>
         
           <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
-          <li class="file"><a href="./PROFILE.html">PROFILE</a></li>
-        
           <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="./README.html">README</a></li>
+          <li class="file"><a href="./Redfile.html">Redfile</a></li>
+        
+          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
         
           <li class="file"><a href="./VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
         </ul>
       </div>
@@ -166,7 +170,9 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
       <br/><br/>
     </div>
   </div>
@@ -176,83 +182,73 @@
     <div id="description">
       
 
-      <h1><a href="Cut.html">Cut</a></h1>
-<p>
-Cuts are transparent subclasses. Thay are the basis of Cut-based AOP. The
+      
+<h1><a href="Cut.html">Cut</a></h1>
+
+<p>Cuts are transparent subclasses. Thay are the basis of Cut-based AOP. The
 general idea of Cut-based AOP is that the <a href="Cut.html">Cut</a> can
 serve a clean container for customized advice on top of which more
-sophisticated AOP systems can be built.
-</p>
+sophisticated AOP systems can be built.</p>
+
 <h2>Examples</h2>
-<p>
-The basic usage is:
-</p>
-<pre>
-  class X
-    def x; &quot;x&quot;; end
-  end
 
-  cut :Z &lt; X do
-    def x; '{' + super + '}'; end
-  end
+<p>The basic usage is:</p>
 
-  X.new.x  #=&gt; &quot;{x}&quot;
-</pre>
-<p>
-One way to use this in an AOP fashion is to define an aspect as a class or
-function module, and tie it together with the <a href="Cut.html">Cut</a>.
-</p>
-<pre>
-  module LogAspect
-    extend self
-    def log(meth, result)
-      ...
-    end
-  end
+<pre>class X
+  def x; &quot;x&quot;; end
+end
 
-  cut :Z &lt; X do
-    def x
-      LogAspect.log(:x, r = super)
-      return r
-    end
+cut :Z &lt; X do
+  def x; '{' + super + '}'; end
+end
+
+X.new.x  #=&gt; &quot;{x}&quot;</pre>
+
+<p>One way to use this in an AOP fashion is to define an aspect as a class or
+function module, and tie it together with the <a href="Cut.html">Cut</a>.</p>
+
+<pre>module LogAspect
+  extend self
+  def log(meth, result)
+    ...
   end
-</pre>
+end
+
+cut :Z &lt; X do
+  def x
+    LogAspect.log(:x, r = super)
+    return r
+  end
+end</pre>
+
 <h2>Implementation</h2>
-<p>
-Cuts act as a &#8220;pre-class&#8221;. Which depictively is:
-</p>
-<pre>
-  ACut &lt; AClass &lt; ASuperClass
-</pre>
-<p>
-Instantiating AClass effecively instantiates ACut instead, but that action
-is effectively transparent.
-</p>
-<p>
-This particular implementation create a module for each cut and extends
-objects as they are created. Given the following example:
-</p>
-<pre>
-  class Klass
-    def x; &quot;x&quot;; end
-  end
 
-  cut KlassCut &lt; Klass
-    def x; '{' + super + '}'; end
-  end
-</pre>
-<p>
-The effect is essentially:
-</p>
-<pre>
-  k = Klass.new
-  k.extend KlassCut
+<p>Cuts act as a “pre-class”. Which depictively is:</p>
 
-  p k.x
-</pre>
-<p>
-The downside to this approach is a limitation in dynamicism.
-</p>
+<pre>ACut &lt; AClass &lt; ASuperClass</pre>
+
+<p>Instantiating AClass effecively instantiates ACut instead, but that action
+is effectively transparent.</p>
+
+<p>This particular implementation create a module for each cut and extends
+objects as they are created. Given the following example:</p>
+
+<pre>class Klass
+  def x; &quot;x&quot;; end
+end
+
+cut KlassCut &lt; Klass
+  def x; '{' + super + '}'; end
+end</pre>
+
+<p>The effect is essentially:</p>
+
+<pre>k = Klass.new
+k.extend KlassCut
+
+p k.x</pre>
+
+<p>The downside to this approach is a limitation in dynamicism.</p>
 
     </div>
 
@@ -288,11 +284,11 @@ The downside to this approach is a limitation in dynamicism.
           <div class="method-source-code"
             id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/cuts/cut.rb, line 81</span>
-81:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">klass</span>, &amp;<span class="ruby-identifier">block</span>)
-82:     <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">cuts</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-keyword kw">self</span>)
-83:     <span class="ruby-identifier">module_eval</span>(&amp;<span class="ruby-identifier">block</span>)
-84:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/cut.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">klass</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">cuts</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-identifier">module_eval</span>(&amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

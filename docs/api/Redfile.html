@@ -3,9 +3,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-  <title>File: README [Cuts]</title>
+  <title>File: Redfile ["Cuts"]</title>
 
   <link rel="SHORTCUT ICON" href="./assets/icon/file.png">
 
@@ -36,8 +36,8 @@
   <div class="head">
     <h1>
       <img src="./assets/icon/file.png" align="absmiddle">&nbsp;
-      <a href="./index.html">Cuts</a>&nbsp;
-      <a href="/">README</a>
+      <a href="./index.html">&quot;Cuts&quot;</a>&nbsp;
+      <a href="">Redfile</a>
     </h1>
   </div>
 
@@ -46,7 +46,7 @@
       <h3 class="section-header">File Stats</h3>
       <dl>
         <dt class="modified-date">Last Modified</dt>
-        <dd class="modified-date">2010-10-13 12:51:43 -0400</dd>
+        <dd class="modified-date">Sat May 07 22:22:55 -0400 2011</dd>
 
         
 
@@ -61,17 +61,19 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+          <li class="file"><a href="./Profile.html">Profile</a></li>
         
           <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
-          <li class="file"><a href="./PROFILE.html">PROFILE</a></li>
-        
           <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="./README.html">README</a></li>
+          <li class="file"><a href="./Redfile.html">Redfile</a></li>
+        
+          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
         
           <li class="file"><a href="./VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
         </ul>
       </div>
@@ -162,19 +164,19 @@
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Symbol</span>
-              <a href="Symbol.html#method-i-%3C">#<</a>
+              <a href="Symbol.html#method-i-3C">#<</a>
             </li>
           
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Joinpoint</span>
-              <a href="Joinpoint.html#method-i-%3D%3D">#==</a>
+              <a href="Joinpoint.html#method-i-3D-3D">#==</a>
             </li>
           
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Joinpoint</span>
-              <a href="Joinpoint.html#method-i-%3D%3D%3D">#===</a>
+              <a href="Joinpoint.html#method-i-3D-3D-3D">#===</a>
             </li>
           
             
@@ -252,7 +254,9 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
       <br/><br/>
     </div>
   </div>
@@ -269,47 +273,75 @@
    -->
 
   <div id="documentation">
-    <p>
-NAME
-</p>
-<pre>
-  cuts
-</pre>
-<p>
-URL
-</p>
-<pre>
-  http://rubyworks.github.com/cuts
-</pre>
-<p>
-SYNOPSIS
-</p>
-<pre>
-  Cuts is an expiremental implementation of cut-based AOP for Ruby.
-</pre>
-<p>
-INSTALL
-</p>
-<pre>
-  gem install cuts
-</pre>
-<p>
-USAGE
-</p>
-<pre>
-  See RDoc API documentation.
-</pre>
-<p>
-<a href="LICENSE.html">LICENSE</a>
-</p>
-<pre>
-  Apache 2.0 License
-</pre>
-<p>
-COPYRIGHT
-</p>
-<pre>
-  Copyright (c) 2008 Thomas Sawyer &amp; Peter Venbroekhoven</pre>
+    <hr style="height: 1px">
+
+<p>grancher:</p>
+
+<pre>active: true</pre>
+
+<p>gem:</p>
+
+<pre>service: Gem
+active : true</pre>
+
+<p>dnote:</p>
+
+<pre>service  : DNote
+loadpath : ~
+labels   : ~
+output   : ~
+format   : ~
+active   : true</pre>
+
+<p>stats:</p>
+
+<pre>service  : Stats
+title    : ~
+loadpath : ~
+exclude  : ~
+output   : ~
+active   : true</pre>
+
+<p>rdoc:</p>
+
+<pre>service  : RDoc
+format   : redfish
+include  : ~
+exclude  : ~
+main     : ~
+extra    : ~
+output   : site/docs/api
+active   : true</pre>
+
+<p>ri:</p>
+
+<pre>service: RI
+include: ~
+exclude: ~
+output : ri
+active : true</pre>
+
+<p>email:</p>
+
+<pre>service : Email
+file    : ~
+subject : ~
+mailto  : ruby-talk@ruby-lang.org
+from    : &lt;%= ENV['EMAIL_ACCOUNT'] %&gt;
+server  : &lt;%= ENV['EMAIL_SERVER'] %&gt;
+port    : &lt;%= ENV['EMAIL_PORT'] %&gt;
+account : &lt;%= ENV['EMAIL_ACCOUNT'] %&gt;
+domain  : &lt;%= ENV['EMAIL_DOMAIN'] %&gt;
+login   : &lt;%= ENV['EMAIL_LOGIN'] %&gt;
+secure  : &lt;%= ENV['EMAIL_SECURE'] %&gt;
+active  : true</pre>
+
+<p>#testrb: #  service  : Testrb # tests    : ~ #  exclude  : ~ #  loadpath :
+~ #  requires : ~ #  live     : false    #  active   : false</p>
+
+<p>#rubyforge: #  service : Rubyforge #  unixname: &lt;= suite %&gt; # 
+groupid : ~ #  package : &lt;= name %&gt; #  sitemap: #    doc/rdoc: &lt;=
+name %&gt; #  active  : false</p>
 
   </div>
 

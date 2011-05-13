@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
   <title>Class: Joinpoint</title>
 
@@ -39,8 +39,8 @@
       
         <img src="./assets/icon/class.png" align="absmiddle">&nbsp;
       
-      <a href="./index.html">Cuts</a>&nbsp;
-      <a href="/">Joinpoint</a>
+      <a href="./index.html">&quot;Cuts&quot;</a>&nbsp;
+      <a href="">Joinpoint</a>
     </h1>
   </div>
 
@@ -73,8 +73,10 @@
         <h3 class="section-header">Parent</h3>
         <ul>
           
-          <!-- why was this class="link" ? -->
-          <li class="class"><a href="Object.html">Object</a></li>
+            
+              <!-- why was this class="link" ? -->
+              <li class="class"><a href="Object.html">Object</a></li>
+            
           
         </ul>
       </div>
@@ -96,12 +98,12 @@
           
             
             <li class="method">
-              <a href="#method-i-%3D%3D">#==</a>
+              <a href="#method-i-3D-3D">#==</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-%3D%3D%3D">#===</a>
+              <a href="#method-i-3D-3D-3D">#===</a>
             </li>
           
             
@@ -124,17 +126,19 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+          <li class="file"><a href="./Profile.html">Profile</a></li>
         
           <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
-          <li class="file"><a href="./PROFILE.html">PROFILE</a></li>
-        
           <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="./README.html">README</a></li>
+          <li class="file"><a href="./Redfile.html">Redfile</a></li>
+        
+          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
         
           <li class="file"><a href="./VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
         </ul>
       </div>
@@ -182,7 +186,9 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
       <br/><br/>
     </div>
   </div>
@@ -194,9 +200,8 @@
         <h1>Joinpoint</h1>
       
 
-      <p>
-TODO: pass actual method instead of using instace_method ?
-</p>
+      
+<p>TODO: pass actual method instead of using instace_method ?</p>
 
     </div>
 
@@ -232,14 +237,14 @@ TODO: pass actual method instead of using instace_method ?
           <div class="method-source-code"
             id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 42</span>
-42:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">base</span>, <span class="ruby-identifier">method</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
-43:     <span class="ruby-ivar">@object</span> = <span class="ruby-identifier">object</span>
-44:     <span class="ruby-ivar">@base</span>   = <span class="ruby-identifier">base</span>
-45:     <span class="ruby-ivar">@method</span> = <span class="ruby-identifier">method</span>
-46:     <span class="ruby-ivar">@args</span>   = <span class="ruby-identifier">args</span>
-47:     <span class="ruby-ivar">@block</span>  = <span class="ruby-identifier">block</span>
-48:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/aop.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">base</span>, <span class="ruby-identifier">method</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@object</span> = <span class="ruby-identifier">object</span>
+  <span class="ruby-ivar">@base</span>   = <span class="ruby-identifier">base</span>
+  <span class="ruby-ivar">@method</span> = <span class="ruby-identifier">method</span>
+  <span class="ruby-ivar">@args</span>   = <span class="ruby-identifier">args</span>
+  <span class="ruby-ivar">@block</span>  = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -254,8 +259,8 @@ TODO: pass actual method instead of using instace_method ?
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%3D%3D"></a>
+      <div id="3D-3D-method" class="method-detail ">
+        <a name="method-i-3D-3D"></a>
 
         <div class="method-heading">
         
@@ -272,12 +277,12 @@ TODO: pass actual method instead of using instace_method ?
 
           
           <div class="method-source-code"
-            id="--source">
+            id="3D-3D-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 59</span>
-59:   <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">sym</span>)
-60:     <span class="ruby-identifier">sym</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@method</span>.<span class="ruby-identifier">to_sym</span>
-61:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/aop.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">sym</span>)
+  <span class="ruby-identifier">sym</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@method</span>.<span class="ruby-identifier">to_sym</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -286,8 +291,8 @@ TODO: pass actual method instead of using instace_method ?
       </div>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%3D%3D%3D"></a>
+      <div id="3D-3D-3D-method" class="method-detail ">
+        <a name="method-i-3D-3D-3D"></a>
 
         <div class="method-heading">
         
@@ -304,17 +309,17 @@ TODO: pass actual method instead of using instace_method ?
 
           
           <div class="method-source-code"
-            id="--source">
+            id="3D-3D-3D-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 50</span>
-50:   <span class="ruby-keyword kw">def</span> <span class="ruby-operator">===</span>(<span class="ruby-identifier">match</span>)
-51:     <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">match</span>
-52:     <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Proc</span>
-53:       <span class="ruby-identifier">match</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword kw">self</span>)
-54:     <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt"># Pattern matches (not supported presently)</span>
-55:       <span class="ruby-identifier">match</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@method</span>.<span class="ruby-identifier">to_sym</span>
-56:     <span class="ruby-keyword kw">end</span>
-57:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/aop.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">===</span>(<span class="ruby-identifier">match</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">match</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Proc</span>
+    <span class="ruby-identifier">match</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># Pattern matches (not supported presently)</span>
+    <span class="ruby-identifier">match</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@method</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -343,11 +348,11 @@ TODO: pass actual method instead of using instace_method ?
           <div class="method-source-code"
             id="super-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/cuts/aop.rb, line 65</span>
-65:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">super</span>
-66:     <span class="ruby-identifier">anc</span> = <span class="ruby-ivar">@object</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">find</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">anc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">anc</span>.<span class="ruby-identifier">method_defined?</span>(<span class="ruby-ivar">@method</span>) }
-67:     <span class="ruby-identifier">anc</span>.<span class="ruby-identifier">instance_method</span>(<span class="ruby-ivar">@method</span>).<span class="ruby-identifier">bind</span>(<span class="ruby-ivar">@object</span>).<span class="ruby-identifier">call</span>(*<span class="ruby-ivar">@args</span>, &amp;<span class="ruby-ivar">@block</span>)
-68:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/cuts/aop.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">anc</span> = <span class="ruby-ivar">@object</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">find</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">anc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">anc</span>.<span class="ruby-identifier">method_defined?</span>(<span class="ruby-ivar">@method</span>) }
+  <span class="ruby-identifier">anc</span>.<span class="ruby-identifier">instance_method</span>(<span class="ruby-ivar">@method</span>).<span class="ruby-identifier">bind</span>(<span class="ruby-ivar">@object</span>).<span class="ruby-identifier">call</span>(*<span class="ruby-ivar">@args</span>, &amp;<span class="ruby-ivar">@block</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

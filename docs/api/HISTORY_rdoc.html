@@ -3,9 +3,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-  <title>File: HISTORY.rdoc [Cuts]</title>
+  <title>File: HISTORY.rdoc ["Cuts"]</title>
 
   <link rel="SHORTCUT ICON" href="./assets/icon/file.png">
 
@@ -36,8 +36,8 @@
   <div class="head">
     <h1>
       <img src="./assets/icon/file.png" align="absmiddle">&nbsp;
-      <a href="./index.html">Cuts</a>&nbsp;
-      <a href="/">HISTORY.rdoc</a>
+      <a href="./index.html">&quot;Cuts&quot;</a>&nbsp;
+      <a href="">HISTORY.rdoc</a>
     </h1>
   </div>
 
@@ -46,7 +46,7 @@
       <h3 class="section-header">File Stats</h3>
       <dl>
         <dt class="modified-date">Last Modified</dt>
-        <dd class="modified-date">2010-10-13 12:30:07 -0400</dd>
+        <dd class="modified-date">Wed Oct 13 12:30:07 -0400 2010</dd>
 
         
 
@@ -61,17 +61,19 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+          <li class="file"><a href="./Profile.html">Profile</a></li>
         
           <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
-          <li class="file"><a href="./PROFILE.html">PROFILE</a></li>
-        
           <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="./README.html">README</a></li>
+          <li class="file"><a href="./Redfile.html">Redfile</a></li>
+        
+          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
         
           <li class="file"><a href="./VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
         </ul>
       </div>
@@ -162,19 +164,19 @@
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Symbol</span>
-              <a href="Symbol.html#method-i-%3C">#<</a>
+              <a href="Symbol.html#method-i-3C">#<</a>
             </li>
           
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Joinpoint</span>
-              <a href="Joinpoint.html#method-i-%3D%3D">#==</a>
+              <a href="Joinpoint.html#method-i-3D-3D">#==</a>
             </li>
           
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Joinpoint</span>
-              <a href="Joinpoint.html#method-i-%3D%3D%3D">#===</a>
+              <a href="Joinpoint.html#method-i-3D-3D-3D">#===</a>
             </li>
           
             
@@ -252,7 +254,9 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Redfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
       <br/><br/>
     </div>
   </div>
@@ -269,55 +273,46 @@
    -->
 
   <div id="documentation">
-    <h1>Release History</h1>
+    
+<h1>Release History</h1>
+
 <h2>1.0.0 (2008-11-24)</h2>
-<p>
-This release completely overhauls how the the original version of cuts was
-implemented.
-</p>
-<p>
-Before, cuts where overriding the constant of the original class and
+
+<p>This release completely overhauls how the the original version of cuts was
+implemented.</p>
+
+<p>Before, cuts where overriding the constant of the original class and
 redirecting class changes (define_method, alias_method, etc.) to the
 original class. This works, and is technically more true to the core idea
-of Cuts, but it is rather fragile &#8212; getting a handle on the <a
+of Cuts, but it is rather fragile – getting a handle on the <a
 href="Cut.html">Cut</a> vs. the <a href="Cut.html">Cut</a> <a
-href="Class.html">Class</a> b/c tricky.
-</p>
-<p>
-The new implementation simply creates a module for a cut instead, and then
-used extend on objects  upon instantiation. The end result is less dynamic
-(cuts need to be defined up front), but it is more stable. As long as new,
+href="Class.html">Class</a> b/c tricky.</p>
+
+<p>The new implementation simply creates a module for a cut instead, and then
+used #extend on objects  upon instantiation. The end result is less dynamic
+(cuts need to be defined up front), but it is more stable. As long as #new,
 when overriden, is done so properly (ie. use super or copy the cut
-extension logic) everthing will work as expected.
-</p>
+extension logic) everthing will work as expected.</p>
+
 <h2>0.0.4 (2008-03-05)</h2>
-<ul>
-<li><p>
-Added <a href="Rakefile.html">Rakefile</a> to run tests.
-</p>
-</li>
-</ul>
+<ul><li>
+<p>Added <a href="Rakefile.html">Rakefile</a> to run tests.</p>
+</li></ul>
+
 <h2>0.0.3 (2008-04-06)</h2>
-<ul>
-<li><p>
-Working release.
-</p>
-</li>
-</ul>
+<ul><li>
+<p>Working release.</p>
+</li></ul>
+
 <h2>0.0.1 (2008-03-05)</h2>
-<ul>
-<li><p>
-First release.
-</p>
-</li>
-</ul>
+<ul><li>
+<p>First release.</p>
+</li></ul>
+
 <h2>0.0.0 (2008-03-04)</h2>
-<ul>
-<li><p>
-Started project.
-</p>
-</li>
-</ul>
+<ul><li>
+<p>Started project.</p>
+</li></ul>
 
   </div>
 

@@ -52,7 +52,7 @@ a:hover {
 }
 
 pre {
-  padding: 0.5em 0;
+  padding: 0.5em;
   border: 1px solid #ccc;
 }
 
@@ -74,13 +74,15 @@ li p {
 
 .head {
   width: auto;
-  -moz-border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 8px 8px 8px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 5px;
-  border-bottom: 0px solid #aaa;
-  border-left: 0px solid #aaa;
-  border-right: 0px solid #aaa;
-  padding: 10px 10px;
-  margin: 0 8px -0.5em 8px;
+  background: -moz-linear-gradient(270deg, #FCFCFC, #ECECEC) repeat scroll 0 0 transparent;
+  border-color: #E9E9E9 #E9E9E9 #F5F5F5;
+  border-style: solid;
+  border-width: 1px;
 }
 
 .head h1 {
@@ -253,13 +255,17 @@ body.file p {
 #metadata h3.section-header {
   margin: 0;
   padding: 2px 8px;
-  background: #ccc;
+  background: url(tab_background.gif) #ccc;
   color: #666;
   -moz-border-radius-topleft: 4px;
   -moz-border-radius-topright: 4px;
   -webkit-border-top-left-radius: 4px;
   -webkit-border-top-right-radius: 4px;
   border-bottom: 1px solid #aaa;
+  background: -moz-linear-gradient(center top , #D7D7D7, #ABABAB) repeat scroll 0 0 transparent;
+  border-color: #C9C9C9 #C9C9C9 #9A9A9A;
+  color: #444444;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 #metadata ul,
@@ -362,8 +368,8 @@ ul.link-list .type {
 
 #documentation h1 {
   margin: 10px 0 10px 0;
-  padding: 0.5em 0.5em 0.5em 0.5em;
-  border: 1px solid #bbb;
+  padding: 10px 0 0 0;
+  border: 0px solid #bbb;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
@@ -417,14 +423,15 @@ ul.link-list .type {
 }
 #documentation h3.section-header {
   margin-top: 2em;
-  padding: 0.75em 0.5em 0.5em 0.5em;
-  background-color: #dedede;
+  padding: 5px 10px;
+  background: url(tab_background.gif) #dedede;
   color: #333;
   color: #FF226C;
   font-size: 150%;
   border: 1px solid #bbb;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 #constants-list > dl,

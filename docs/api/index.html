@@ -3,11 +3,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <META CONTENT="text/html; charset=utf-8" http-equiv="Content-Type" />
-  <META NAME="generator" CONTENT="RDazzle Yardfish 1.4.0">
-  <META NAME="timestamp" CONTENT="2010-10-13 14:29:26 -0400">
+  <META CONTENT="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <META NAME="generator" CONTENT="RDazzle Yardfish 2.0.0">
+  <META NAME="timestamp" CONTENT="Fri May 13 10:38:26 -0400 2011">
 
-  <title>Cuts</title>
+  <title>&quot;Cuts&quot;</title>
 
   <link rel="SHORTCUT ICON" href="assets/icon/ruby.png">
 
@@ -38,7 +38,7 @@
   <div class="head">
     <h1>
       <img src="assets/icon/project.png" align="absmiddle">&nbsp;
-      <a href="index.html">Cuts</a>
+      <a href="index.html">&quot;Cuts&quot;</a>
     </h1>
   </div>
 
@@ -51,17 +51,19 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="Rakefile.html">Rakefile</a></li>
+          <li class="file"><a href="Profile.html">Profile</a></li>
         
           <li class="file"><a href="HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
-          <li class="file"><a href="PROFILE.html">PROFILE</a></li>
-        
           <li class="file"><a href="LICENSE.html">LICENSE</a></li>
         
-          <li class="file"><a href="README.html">README</a></li>
+          <li class="file"><a href="Redfile.html">Redfile</a></li>
+        
+          <li class="file"><a href="Rakefile.html">Rakefile</a></li>
         
           <li class="file"><a href="VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="README_rdoc.html">README.rdoc</a></li>
         
         </ul>
       </div>
@@ -159,19 +161,19 @@
           
           <li class="method" style="clear: both;">
             <span class="method-parent-aside">Symbol</span>
-            <a href="Symbol.html#method-i-%3C">#<</a>
+            <a href="Symbol.html#method-i-3C">#<</a>
           </li>
         
           
           <li class="method" style="clear: both;">
             <span class="method-parent-aside">Joinpoint</span>
-            <a href="Joinpoint.html#method-i-%3D%3D">#==</a>
+            <a href="Joinpoint.html#method-i-3D-3D">#==</a>
           </li>
         
           
           <li class="method" style="clear: both;">
             <span class="method-parent-aside">Joinpoint</span>
-            <a href="Joinpoint.html#method-i-%3D%3D%3D">#===</a>
+            <a href="Joinpoint.html#method-i-3D-3D-3D">#===</a>
           </li>
         
           
@@ -250,7 +252,9 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle RedFish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
       <br/><br/> 
     </div>
   </div>
@@ -265,11 +269,13 @@
     
       <li class="file"><a href="LICENSE.html">LICENSE</a></li>
     
-      <li class="file"><a href="PROFILE.html">PROFILE</a></li>
+      <li class="file"><a href="Profile.html">Profile</a></li>
     
-      <li class="file"><a href="README.html">README</a></li>
+      <li class="file"><a href="README_rdoc.html">README.rdoc</a></li>
     
       <li class="file"><a href="Rakefile.html">Rakefile</a></li>
+    
+      <li class="file"><a href="Redfile.html">Redfile</a></li>
     
       <li class="file"><a href="VERSION.html">VERSION</a></li>
     
@@ -304,21 +310,21 @@
     
       <li><a href="Object.html#method-c-extended">::extended &mdash; Object</a></li>
     
-      <li><a href="Joinpoint.html#method-c-new">::new &mdash; Joinpoint</a></li>
-    
-      <li><a href="Cut.html#method-c-new">::new &mdash; Cut</a></li>
-    
       <li><a href="Object.html#method-c-new">::new &mdash; Object</a></li>
     
       <li><a href="Aspect.html#method-c-new">::new &mdash; Aspect</a></li>
     
       <li><a href="Target.html#method-c-new">::new &mdash; Target</a></li>
     
-      <li><a href="Symbol.html#method-i-%3C">#< &mdash; Symbol</a></li>
+      <li><a href="Cut.html#method-c-new">::new &mdash; Cut</a></li>
     
-      <li><a href="Joinpoint.html#method-i-%3D%3D">#== &mdash; Joinpoint</a></li>
+      <li><a href="Joinpoint.html#method-c-new">::new &mdash; Joinpoint</a></li>
     
-      <li><a href="Joinpoint.html#method-i-%3D%3D%3D">#=== &mdash; Joinpoint</a></li>
+      <li><a href="Symbol.html#method-i-3C">#< &mdash; Symbol</a></li>
+    
+      <li><a href="Joinpoint.html#method-i-3D-3D">#== &mdash; Joinpoint</a></li>
+    
+      <li><a href="Joinpoint.html#method-i-3D-3D-3D">#=== &mdash; Joinpoint</a></li>
     
       <li><a href="Object.html#method-i-advices">#advices &mdash; Object</a></li>
     
@@ -347,47 +353,83 @@
 
   
   <div id="documentation">
-    <p>
-NAME
-</p>
-<pre>
-  cuts
-</pre>
-<p>
-URL
-</p>
-<pre>
-  http://rubyworks.github.com/cuts
-</pre>
-<p>
-SYNOPSIS
-</p>
-<pre>
-  Cuts is an expiremental implementation of cut-based AOP for Ruby.
-</pre>
-<p>
-INSTALL
-</p>
-<pre>
-  gem install cuts
-</pre>
-<p>
-USAGE
-</p>
-<pre>
-  See RDoc API documentation.
-</pre>
-<p>
-<a href="LICENSE.html">LICENSE</a>
-</p>
-<pre>
-  Apache 2.0 License
-</pre>
-<p>
-COPYRIGHT
-</p>
-<pre>
-  Copyright (c) 2008 Thomas Sawyer &amp; Peter Venbroekhoven</pre>
+    
+<h1>Cuts - Cut-based AOP for Ruby</h1>
+
+<h2>Description</h2>
+
+<p>Cuts is an expiremental pure-Ruby implimentation of cut-base AOP. Cuts are
+a failry low-level system, so implementing them in pure-Ruby is no simple
+accomplishment, even for a language as reflective and metaprogrammable as
+Ruby.</p>
+
+<h2>History</h2>
+
+<p>Cuts started it’s life as a discussion about AOP on Ruby-talk, which led
+to  a in-depth discussion between Trans and Peter Vanbroekhoven. The
+outcome of those talks were three projects. &lt;a href=“<a
+href="http://suby.rubyforge.org">Suby</a">suby.rubyforge.org”>Suby</a</a>&gt;
+an early expiremental branch of Ruby; the RCRFoundry, a section of the Ruby
+Garden Wiki dedicated to jointly developing RCRs; and the &lt;a
+href=“rcr.html”&gt;Cut-based AOP RCR&lt;/a&gt;.  The RCR of course,
+ultimately led to this project, as well as an expiremental Ruby 1.8.3 core
+implementation (see the Suby homepage). We continue to touch up the &lt;a
+href=“rcr.html”&gt;RCR&lt;/a&gt; but on the whole it is now
+complete.&lt;/p&gt;</p>
+
+<p>Please read &lt;a href=“rcr.html”&gt;Cut-based AOP for Ruby
+RCR&lt;/a&gt;.</p>
+
+<p>This Cuts library comes by way of &lt;a href=“<a
+href="http://facets.rubyforge.org">Ruby”>facets.rubyforge.org“>Ruby</a>
+Facets&lt;/a&gt;, where the implementation was orginally housed. Becuase of
+it’s expiremental nature, it was deemd best to move it into it’s own
+project as part of the ongoing work to make Facets a rock solid library.
+Despite being expiremental, this  implementation does pass it’s unit
+test. However, it has had litte trial in integrated tests. It will be
+interesting to see if this library, as it matures, can prove robust enough
+for production use. In either case, clearly it would be preferable to have
+a Ruby-core implementation instead, but that potential is completely in
+other persons hands.&lt;/p&gt;</p>
+
+<h2>Usage</h2>
+
+<p>Here is a quick and dirty example:</p>
+
+<pre>require 'cuts'
+
+class C
+  def f ; &quot;f&quot; ; end
+end
+
+cut :G &lt; C do
+  def f; '&lt;'+super+'&gt;' ; end
+end
+
+c = C.new
+
+c.f  #=&gt; &quot;&amp;lt;f&amp;gt;&quot;</pre>
+
+<p>For detailed usage documentation, please refer to the &lt;a
+href=“docs/api/index.html”&gt;API Docs&lt;/a&gt;.</p>
+
+<h2>Install</h2>
+
+<p>Install via RubyGems:</p>
+
+<pre>$ gem install cuts</pre>
+
+<h2>Special Thanks</h2>
+
+<p>Special thanks to Peter Van Broekhoven. The man is a genius!</p>
+
+<h2>Legal</h2>
+
+<p>(Apache 2.0 License)</p>
+
+<p>Cuts, Copyright &amp;#x00A9; 2007 Thomas Sawyer &amp; Peter Van Broekhoven</p>
+
+<p>See NOTICE.rdoc and APACHE2.txt file for details.</p>
 
   </div>
   
