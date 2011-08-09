@@ -2,6 +2,8 @@ h1. Cut-base AOP
 
   by Trans and Peter Vanbroekhoven (rev. 70)
 
+  <a href="http://creativecommons.org/licenses/by-sa/3.0/">&copy; CA BY-SA</a>
+
 
 h2. ABSTRACT
 
