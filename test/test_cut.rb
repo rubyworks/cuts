@@ -1,7 +1,9 @@
-require 'test/unit'
+require 'microtest'
+require 'ae'
 require 'cuts'
 
-class TestCut < Test::Unit::TestCase
+#
+class TestCutNew < MicroTest::TestCase
 
   class X
     def x; "x"; end
@@ -12,13 +14,14 @@ class TestCut < Test::Unit::TestCase
   end
 
   def test_method_is_wrapped_by_advice
-      o = X.new
-      assert_equal("{x}", o.x)
+    o = X.new
+    o.x.assert == "{x}"
   end
 
 end
 
-class TestCut1 < Test::Unit::TestCase
+#
+class TestLiteralSyntax < MicroTest::TestCase
 
   class F
     def f ; "f" ; end
@@ -31,20 +34,19 @@ class TestCut1 < Test::Unit::TestCase
 
   def test_1_01
     f = F.new
-    assert_equal( "<f>", f.f )
-    assert_equal( F, f.class )
+    f.f.assert == "<f>"
+    f.class.assert == F
   end
 
   def test_1_02
     assert(G)
-    assert_equal( "TestCut1::G", G.name )
+    G.name.assert == "TestLiteralSyntax::G"
   end
 
 end
 
 # Test multiple cuts.
-
-class TestCut2 < Test::Unit::TestCase
+class TestMultipleCuts < MicroTest::TestCase
 
   class F
     def f ; "f" ; end
@@ -61,24 +63,24 @@ class TestCut2 < Test::Unit::TestCase
   end
 
   #def test_2_01
-  #  assert_equal( [Q, G], F.cuts )
-  #  assert_equal( [Q, G], F.predecessors )
+  #  F.cuts.assert == [Q, G]
+  #  F.predecessors.assert == [Q, G]
   #end
 
   def test_2_02
     f = F.new
-    assert_equal( F, f.class )
-    assert_equal( "[<f>]", f.f )
+    f.class.assert == F
+    f.f.assert == "[<f>]"
   end
 
   def test_2_03
     assert(G)
-    assert_equal( "TestCut2::G", G.name )
+    G.name.assert == "TestMultipleCuts::G"
   end
 
   def test_2_04
     assert(Q)
-    assert_equal( "TestCut2::Q", Q.name )
+    Q.name.assert == "TestMultipleCuts::Q"
   end
 
 end

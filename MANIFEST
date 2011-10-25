@@ -1,4 +1,4 @@
-#!mast .ruby bin lib spec test [A-Z][A-Z]*
+#!mast .ruby .yardopts bin lib man spec test [A-Z]*.*
 .ruby
 lib/cuts/aop.rb
 lib/cuts/cut.rb

@@ -1,0 +1,16 @@
+---
+gem:
+  active : true
+
+github:
+  active: true
+
+dnote:
+  labels: ~
+  output: log/NOTES.rdoc
+
+email:
+  mailto:
+    - ruby-talk@ruby-lang.org
+    - rubyworks-mailinglist@googlegroups.com
+

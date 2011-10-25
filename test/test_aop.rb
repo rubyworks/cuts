@@ -1,7 +1,8 @@
-require 'test/unit'
+require 'microtest'
+require 'ae'
 require 'cuts'
 
-class TestAop < Test::Unit::TestCase
+class AOPTest < MicroTest::TestCase
 
   class X
     def x; "x"; end
@@ -24,26 +25,26 @@ class TestAop < Test::Unit::TestCase
   end
 
   def test_class
-    assert_equal(X, @x1.class)
+    @x1.class.assert == X
   end
 
   def test_public_methods
     meths = @x1.public_methods(false)
-    assert(meths.include?("y"))
-    assert(meths.include?("q"))
-    assert(meths.include?("x"))
+    meths.assert.include?("y")
+    meths.assert.include?("q")
+    meths.assert.include?("x")
   end
 
   def test_x
-    assert_equal("{x}", @x1.x)
+    @x1.x.assert == "{x}"
   end
 
   def test_y
-    assert_equal("y", @x1.y)
+    @x1.y.assert == "y"
   end
 
   def test_q
-    assert_equal("<{x}>", @x1.q)
+    @x1.q.assert == "<{x}>"
   end
 
 end

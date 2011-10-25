@@ -65,8 +65,8 @@ Special thanks to Peter Van Broekhoven. The man is a genius!
 
 == Legal
 
-(Apache 2.0 License)
+(FreeBSD License)
 
-Cuts, Copyright &#x00A9; 2007 Thomas Sawyer & Peter Van Broekhoven
+Cuts, Copyright (c) 2007 Thomas Sawyer & Peter Van Broekhoven
 
-See NOTICE.rdoc and APACHE2.txt file for details.
+See NOTICE.rdoc for details.
