@@ -6,7 +6,6 @@ lib/cuts.rb
 test/test_aop.rb
 test/test_cut.rb
 HISTORY.rdoc
-LICENSE
 README.rdoc
-VERSION
+NOTICE.rdoc
 RCR.textile

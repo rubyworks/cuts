@@ -1,6 +1,12 @@
 = Release History
 
-== 1.0.0 (2008-11-24)
+== 1.1.0 / 2011-10-24
+
+This release modernizes the build configuration and 
+switches the license to BSD-2-Clause.
+
+
+== 1.0.0 / 2008-11-24
 
 This release completely overhauls how the the original
 version of cuts was implemented.

@@ -19,6 +19,14 @@ requirements:
   groups:
   - build
   development: true
+- name: microtest
+  groups:
+  - test
+  development: true
+- name: ae
+  groups:
+  - test
+  development: true
 dependencies: []
 conflicts: []
 repositories:
@@ -36,9 +44,9 @@ revision: 0
 created: '2008-02-12'
 summary: Cut-based AOP for Ruby
 title: Cuts
+version: 1.1.0
 name: cuts
 description: Cuts is an expiremental implementation of cut-based AOP for Ruby written
   in pure Ruby.
 organization: Rubyworks
-version: ''
 date: '2011-10-24'
