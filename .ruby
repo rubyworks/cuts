@@ -1,6 +1,6 @@
 ---
 source:
-- meta
+- meta/
 authors:
 - name: Thomas Sawyer
   email: transfire@gmail.com
