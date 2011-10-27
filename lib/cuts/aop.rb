@@ -107,6 +107,8 @@ def cross_cut(klass)
     def self.extended(obj)
       base = obj.class #__base__
 
+      # TODO: include protected methods ?
+
       # use string for 1.9-, and symbol for 1.9+
       methods = obj.public_methods + obj.private_methods - [:advices, 'advices']
 
