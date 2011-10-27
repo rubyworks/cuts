@@ -1,5 +1,12 @@
 = Cuts - Cut-based AOP for Ruby
 
+{Homepage}[http://rubyworks.github.com/cuts] |
+{Source Code}[http://github.com/rubyworks/cuts] |
+{Issue Tracker}[http://github.com/rubyworks/cuts/issues]
+
+{<img src="http://travis-ci.org/rubyworks/cuts.png" />}[http://travis-ci.org/rubyworks/cuts]
+
+
 == Description
 
 Cuts is an expiremental pure-Ruby implimentation of cut-base AOP.

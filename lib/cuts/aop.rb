@@ -107,12 +107,14 @@ def cross_cut(klass)
     def self.extended(obj)
       base = obj.class #__base__
 
-      # TODO: include protected methods ?
-
       # use string for 1.9-, and symbol for 1.9+
-      methods = obj.public_methods + obj.private_methods - [:advices, 'advices']
+      methods = obj.methods +
+                obj.public_methods +
+                obj.protected_methods +
+                obj.private_methods -
+                [:advices, 'advices']
 
-      methods.each do |sym|
+      methods.uniq.each do |sym|
         #meth = obj.method(sym)
         define_method(sym) do |*args, &blk|
           jp = Joinpoint.new(self, base, sym, *args) #, &blk)
@@ -139,12 +141,9 @@ def cross_cut(klass)
             end
             target.call #super
           end
-
-        end
-
-      end
-
-    end
+        end #define_method
+      end #methods
+    end #def
 
   end
 
