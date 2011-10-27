@@ -3,7 +3,14 @@
 == 1.1.0 / 2011-10-24
 
 This release modernizes the build configuration and 
-switches the license to BSD-2-Clause.
+switches the license to BSD-2-Clause. At the same time
+it fixes a couple of issues with the aop.rb library
+when running Ruby 1.9+.
+
+Changes:
+
+* Modernize build system.
+* Fix stack error with aop.rb on Ruby 1.9+.
 
 
 == 1.0.0 / 2008-11-24
