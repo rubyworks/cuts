@@ -11,29 +11,32 @@
 
 Cuts is an expiremental pure-Ruby implimentation of cut-base AOP.
 Cuts are a failry low-level system, so implementing them in pure-Ruby is no
-simple accomplishment, even for a language as reflective and metaprogrammable as Ruby.
+simple accomplishment, even for a language as reflective and metaprogrammable
+as Ruby.
 
 
 == History
 
 Cuts started it's life as a discussion about AOP on Ruby-talk, which led to 
 a in-depth discussion between Trans and Peter Vanbroekhoven. The outcome of those talks
-were three projects. <a href="http://suby.rubyforge.org">Suby</a> an early expiremental
+were three projects. {Suby}[http://suby.rubyforge.org] an early expiremental
 branch of Ruby; the RCRFoundry, a section of the Ruby Garden Wiki dedicated to jointly
-developing RCRs; and the <a href="rcr.html">Cut-based AOP RCR</a>. 
-The RCR of course, ultimately led to this project, as well as an expiremental Ruby 1.8.3
-core implementation (see the Suby homepage). We continue to touch up the
-<a href="rcr.html">RCR</a> but on the whole it is now complete.</p>
+developing RCRs; and the {Cut-based AOP RCR}[rcr.html]. The RCR of course,
+ultimately led to this project, as well as an expiremental Ruby 1.8.3 core
+implementation (see the Suby homepage). We continue to touch up the {RCR}[rcr.html]
+but on the whole it is now complete.
 
-Please read <a href="rcr.html">Cut-based AOP for Ruby RCR</a>.
+Please read {Cut-based AOP for Ruby RCR}[rcr.html].
 
-This Cuts library comes by way of <a href="http://facets.rubyforge.org">Ruby Facets</a>, where the implementation
-was orginally housed. Becuase of it's expiremental nature, it was deemd best to move it into it's own
-project as part of the ongoing work to make Facets a rock solid library. Despite being expiremental, this 
-implementation does pass it's unit test. However, it has had litte trial in integrated tests. It will be
-interesting to see if this library, as it matures, can prove robust enough for production use. In either
-case, clearly it would be preferable to have a Ruby-core implementation instead, but that potential
-is completely in other persons hands.</p>
+This Cuts library comes by way of {Ruby Facets}[http://rubyworks.github.com/facets],
+where the implementation was orginally housed. Becuase of it's expiremental nature,
+it was deemd best to move it into it's own project as part of the ongoing work to
+make Facets a rock solid library. Despite being expiremental, this implementation
+does pass it's unit test. However, it has had litte trial in integrated tests.
+It will be interesting to see if this library, as it matures, can prove robust
+enough for production use. In either case, clearly it would be preferable to have
+a Ruby-core implementation instead, but that potential is completely in other
+persons hands.
 
 
 == Usage
@@ -55,7 +58,7 @@ Here is a quick and dirty example:
   c.f  #=> "&lt;f&gt;"
 
 
-For detailed usage documentation, please refer to the <a href="docs/api/index.html">API Docs</a>.
+For detailed usage documentation, please refer to the {API Documentation}[http://rubydoc.info/gems/cuts].
 
 
 == Install
