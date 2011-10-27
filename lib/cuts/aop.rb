@@ -1,22 +1,11 @@
-# TITLE:
-#
-#   Aspect Oriented Programming for Ruby
-#
-# SUMMARY:
-#
-#
-# AUTHORS:
-#
-#   - Thomas Sawyer
-#
-# NOTES:
-#
-#    - Can JointPoint and Target be the same class?
-
 require 'cuts/cut'
 
-#
+require 'pp'
 
+# TODO: Can JointPoint and Target be the same class?
+
+# Aspect Oriented Programming for Ruby using Cuts.
+#
 class Aspect < Module
 
   def initialize(&block)
@@ -104,23 +93,27 @@ end
 
 
 def cross_cut(klass)
-  Cut.new(klass) do
-    define_method :__base__ do klass end
 
-    def advices; @advices ||= {}; end
+  Cut.new(klass) do
+
+    define_method :__base__ do
+      klass 
+    end
+
+    def advices
+      @advices ||= {} 
+    end
 
     def self.extended(obj)
       base = obj.class #__base__
 
-      methods = obj.methods + obj.private_methods - ['advices']
+      # use string for 1.9-, and symbol for 1.9+
+      methods = obj.public_methods + obj.private_methods - [:advices, 'advices']
 
       methods.each do |sym|
-
         #meth = obj.method(sym)
-
-        define_method(sym) do |*args| #, &blk|  # TODO imporove interface mirroring
+        define_method(sym) do |*args, &blk|
           jp = Joinpoint.new(self, base, sym, *args) #, &blk)
-
           # calculate advices on first use.
           unless advices[sym]
             advices[sym] = []
@@ -136,13 +129,13 @@ def cross_cut(klass)
           end
           
           if advices[sym].empty?
-            super
+            super(*args, &blk)
           else
             target = jp #Target.new(self, sym, *args, &blk)  # Target == JoinPoint ?
             advices[sym].each do |(aspect, advice)|
               target = Target.new(aspect, advice, target)
             end
-            target.super
+            target.call #super
           end
 
         end

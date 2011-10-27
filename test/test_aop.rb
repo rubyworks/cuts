@@ -30,6 +30,7 @@ class AOPTest < MicroTest::TestCase
 
   def test_public_methods
     meths = @x1.public_methods(false)
+    meths = meths.map{ |m| m.to_s }
     meths.assert.include?("y")
     meths.assert.include?("q")
     meths.assert.include?("x")
