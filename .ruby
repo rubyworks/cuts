@@ -1,6 +1,6 @@
 ---
 source:
-- meta
+- var
 authors:
 - name: Thomas Sawyer
   email: transfire@gmail.com
@@ -49,4 +49,4 @@ name: cuts
 description: Cuts is an expiremental implementation of cut-based AOP for Ruby written
   in pure Ruby.
 organization: Rubyworks
-date: '2011-10-26'
+date: '2011-11-11'

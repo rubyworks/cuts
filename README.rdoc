@@ -73,10 +73,10 @@ Install via RubyGems:
 Special thanks to Peter Van Broekhoven. The man is a genius!
 
 
-== Legal
-
-(FreeBSD License)
+== Copyrights
 
 Cuts, Copyright (c) 2007 Thomas Sawyer & Peter Van Broekhoven
+
+Cuts is distributable in accrodance with the *FreeBSD* License.
 
 See NOTICE.rdoc for details.

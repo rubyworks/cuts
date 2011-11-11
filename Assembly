@@ -3,9 +3,10 @@ gem:
   active : true
 
 github:
-  active: true
+  gh_pages: web
 
 dnote:
+  title: Developer's Notes
   labels: ~
   output: log/NOTES.rdoc
 

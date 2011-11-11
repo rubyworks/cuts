@@ -1,4 +1,4 @@
-h1. Cut-base AOP
+h1. Cut-based AOP
 
   by Trans and Peter Vanbroekhoven (rev. 70)
 
