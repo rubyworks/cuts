@@ -278,7 +278,7 @@ FIRST. Advising multiple methods with a single advice, as we have done in the ab
   end
 </pre>
 
-However, it not sufficient for dealing with Ruby's dynamicism. It will only handles methods defined in the target class at the moment the cut is defined. Complete AOP support requires the advice always stay in sync even under dynamic alteration of the targeted class. Ruby already provides means for this via the Module#method_added hook, but robust use of this technique is inconvenient at best. So a proper advice-oriented techinique is neede
+However, it not sufficient for dealing with Ruby's dynamicism. It will only handle methods defined in the target class at the moment the cut is defined. Complete AOP support requires the advice always stay in sync even under dynamic alteration of the targeted class. Ruby already provides means for this via the Module#method_added hook, but robust use of this technique is inconvenient at best. So a proper advice-oriented techinique would be preferable.
 
 SECOND. When using redirected advice or, more importantly, when using modules as reusable aspects: care must be taken in choosing method names so as not to inadvertently interfere with the methods of the class(es) being cut. This can be a problem because it inhibits code reuse, i.e. the ability to design components without regard to where they may be applied. For example:
 
@@ -303,7 +303,7 @@ SECOND. When using redirected advice or, more importantly, when using modules as
   C.new.d  #=> "{W}"
 </pre>
 
-In this case, #d does not return "W" as expected, but rather "{W}" because the advice in MA caused an unexpected name clash with the #w method in C. To fulfil the true abstraction and re-usability potential of AOP this issue <i>must</i> be remedied.
+In this case, #d does not return "W" as expected, but rather "{W}" because the advice in MA caused an unexpected name clash with the #w method in C. To fulfil the true abstraction and re-usability potential of AOP it would help to remedy this issue.
 
 One remedy comes from Ruby's ability to dynamically manipulate class/module definitions on the fly, in other words, "sub-classing" the aspect module and applying any required name revisions to avoid the unwanted name clash.
 
@@ -340,12 +340,12 @@ The @#rename_method@ effectively alias the original method and undefines it in o
   end
 </pre>
 
+This kind of solution largely address the name clash issue, but it is still less then optimal. Possibly a better approach can be found.
 
-This kind of solution largely address the name clash issue, but it is still less then optimal.
 
 h3. The Aspect
 
-To address the limitation of the Cut, we take the next natural step in supporting AOP and create the Aspect. Aspects are similar to Cuts, in fact they can be built via delegation to Cuts, but they are a higher-level structure and support all the AOP features most are accustom, such a pointcuts, join-points and multi-class cross-cutting. An Aspect basically takes the Cut class, builds-in all the target features we handled by hand in Cuts, adds flow control methods for handling Ruby's dynamicism and provides a wholly separate area of encapsulation, which avoids any name clashing.
+One way to address the limitation of the Cut, is to take the next natural step in supporting a full AOP system and create the Aspect. Aspects are similar to Cuts, in fact they can be built via delegation to Cuts, but they are a higher-level structure and support all the AOP features most are accustom, such a pointcuts, join-points and multi-class cross-cutting. An Aspect basically takes the Cut class, builds-in all the target features we handled by hand in Cuts, adds flow control methods for handling Ruby's dynamicism and provides a wholly separate area of encapsulation, which avoids any name clashing.
 
 The primary distinction of Aspects is the #join method, which identifies which methods are to be advised but what advice.
 
