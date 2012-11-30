@@ -1,6 +1,6 @@
 h1. Cut-based AOP
 
-  by Trans and Peter Vanbroekhoven (rev. 70)
+  by Trans and Peter Vanbroekhoven (rev. 71)
 
   <a href="http://creativecommons.org/licenses/by-sa/3.0/">&copy; CA BY-SA</a>
 
@@ -443,7 +443,7 @@ h3. Cons
 * Cut syntax is a slightly more verbose and entails more overhead than simple method hooks. [Counterpoint: But the difference <i>is</i> minor. Simple methods hooks could, in point of fact, be implemented via cuts with efficiencies quite close to a simple hook solution.]
 * Cannot advise large numbers of classes in a single <i>dedicated</i> clause. [Counterpoint: Cuts are specifically designed <i>not</i> to do this as the inability also has advantage, not the least of which is performance efficiency. Moreover it has been discovered that such large swaths of cross-cutting are in actuality the uncommon usecases, more suitable to specialized applications like unit-testing and profiling.]
 * AOP traditionalists might be a bit taken aback by the Cut-based approach in that it does not specifically reference join-points and pointcuts. [Counerpoint: As above, cuts provide a better approach for the most common AOP usecases.]
-* Until local instance variables are available, and/or local instance methods, <i>introduction</i> is not as strong as it really needs to be for good AOP coverage. [Counterpoint: We suspect this is likely to be addressed in a future version of Ruby.] 
+* Until local instance variables are available, and/or local instance methods, <i>introduction</i> is not as strong as it could be for good AOP coverage. [Counterpoint: Simply using well thought out naming schemes can largely take care of this. It might also be more directly addressed in a future version of Ruby via proposed `@_` variables.] 
 
 
 
