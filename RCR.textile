@@ -11,8 +11,6 @@ This RCR presents <i>cut-based</i> AOP, an efficient and easy-to-use approach to
 
 The work herein is the culmination of multi-year discussion and inquiry on the topic of AOP for Ruby. It has been carried-out with the ultimate hope of establishing Ruby as a premier AOP language, if not <i>the</i> AOP language of choice. Since AOP is a very powerful paradigm for abstracting programming solutions into <i>separate concerns</i>, and shows great promise for improvements in <i>code maintenance</i> and <i>reusability</i>, it seems only natural that an agile language such as Ruby could provide strong support for this increasing popular pattern of design.
 
-IMPORTANT! This is a new edition of Cut-based AOP and is different from previous editions. The significant change, is that it simplifies the definition of a Cut to it's essential character --a transparent subclass. The remaining AOP support structure are transferred to an Aspect class, which is built on top of these pure Cuts.
-
 
 h2. PROBLEM
 
