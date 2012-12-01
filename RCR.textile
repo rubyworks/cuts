@@ -378,6 +378,7 @@ The #join method would also accept wild cards.
 
 An it can also take a block which allows us to work with join-points. In the code below, @jp@ is a JoinPoint object.
 
+<pre>
   Xa = Aspect.new do
     join :x do |jp|
       jp.name == :f or jp.name == :g
@@ -385,6 +386,7 @@ An it can also take a block which allows us to work with join-points. In the cod
 
     def x(target); '{' + target.super + '}'; end
   end
+</pre>
 
 A JoinPoint object is very similar to an internal Ruby frame, and provides parameters based on the targeted method plus many of the same parameters that #set_trace_func can use: event, file, line, id, binding, classname. Though some of these may be omitted for performance reasons.
 
