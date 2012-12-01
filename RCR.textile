@@ -419,7 +419,7 @@ However system-wide effects must by definition be more robust as we can't always
   end
 </pre>
 
-There are plenty of great applications for broad cross-cutting like this, especially in the way of code inspection, unit testing, debugging, etc. The Aspect is a vital part to AOP as it provides the dynamic flexibility that is required of complete Ruby AOP solution.
+There are plenty of great applications for broad cross-cutting like this, especially in the way of code inspection, unit testing, debugging, etc. The Aspect is an important part to AOP as it provides the dynamic flexibility that is required of complete Ruby AOP solution.
 
 
 h2. ANALYSIS
