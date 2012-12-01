@@ -208,12 +208,14 @@ But notice the problem that arises. Super will not be directed to <code>f</code>
 
 This works well enough, though one must be careful to avoid name clashes between advice and methods in classes being cut, but it is a rather brutish; nor does it provide any significant <i>inspection</i>. We can improvement upon this by passing the target method itself, but <i>enhanced</i> to provide the current super context, and usefully, its own name. We might define a method to provide this with something like:
 
+<pre>
   def target_method(name,&block)
     m = method(name)
     m.send(:define_method, :name, name)
     m.send(:define_method, :super, &block)
     m
   end
+</pre>
 
 Then we can use it as follows.
 
